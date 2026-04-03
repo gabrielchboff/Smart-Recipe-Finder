@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recipe Detail Schematic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#ffffff",
+              "on-error": "#ffffff",
+              "on-background": "#1a1c1c",
+              "error": "#ba1a1a",
+              "on-surface": "#1a1c1c",
+              "inverse-primary": "#c6c6c6",
+              "on-tertiary-fixed-variant": "#e3e2e2",
+              "on-secondary-container": "#1b1c1c",
+              "on-secondary-fixed-variant": "#3b3b3b",
+              "on-tertiary": "#e3e2e2",
+              "secondary-fixed-dim": "#acabab",
+              "on-tertiary-fixed": "#ffffff",
+              "inverse-surface": "#2f3131",
+              "surface-variant": "#e2e2e2",
+              "on-secondary-fixed": "#1b1c1c",
+              "inverse-on-surface": "#f1f1f1",
+              "on-primary-fixed": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#eeeeee",
+              "on-primary-fixed-variant": "#e2e2e2",
+              "surface": "#f9f9f9",
+              "primary-fixed-dim": "#474747",
+              "surface-tint": "#5e5e5e",
+              "surface-container-low": "#f3f3f3",
+              "on-primary-container": "#ffffff",
+              "outline": "#777777",
+              "surface-bright": "#f9f9f9",
+              "tertiary-fixed": "#5e5e5f",
+              "surface-container-highest": "#e2e2e2",
+              "tertiary-container": "#747475",
+              "secondary-container": "#d6d4d3",
+              "on-error-container": "#410002",
+              "tertiary-fixed-dim": "#464747",
+              "secondary": "#5f5e5e",
+              "on-surface-variant": "#474747",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#c8c6c6",
+              "on-primary": "#e2e2e2",
+              "background": "#f9f9f9",
+              "primary-fixed": "#5e5e5e",
+              "on-secondary": "#ffffff",
+              "tertiary": "#3a3c3c",
+              "primary": "#000000",
+              "outline-variant": "#c6c6c6"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .blueprint-x {
+            background-image: 
+                linear-gradient(to top right, transparent calc(50% - 1px), #c6c6c6 50%, transparent calc(50% + 1px)),
+                linear-gradient(to bottom right, transparent calc(50% - 1px), #c6c6c6 50%, transparent calc(50% + 1px));
+            background-size: 100% 100%;
+            opacity: 0.3;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-white pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f9f9f9]/80 backdrop-blur-md flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-10 h-10 hover:bg-[#f3f3f3] transition-colors active:opacity-70 active:scale-[0.98]">
+<span class="material-symbols-outlined text-black">menu</span>
+</button>
+<h1 class="font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold text-black">RECIPE_SCHEMATIC</h1>
+</div>
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-[16px]">person</span>
+</div>
+</div>
+</header>
+<main class="pt-16 max-w-md mx-auto">
+<!-- Hero Section: Architectural Image Placeholder -->
+<section class="relative aspect-video w-full bg-surface-container overflow-hidden">
+<div class="absolute inset-0 blueprint-x"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-['Inter'] text-[0.6875rem] font-bold tracking-widest text-outline uppercase">IMG_REF_01.SCHEMATIC</span>
+</div>
+</section>
+<!-- Recipe Content Wrapper -->
+<div class="px-6 py-8">
+<!-- Header Identity -->
+<div class="mb-10">
+<span class="font-['Inter'] font-bold text-[0.6875rem] tracking-widest text-outline uppercase block mb-2">FILE_ID: RS_092</span>
+<h2 class="text-4xl font-black tracking-tighter text-black leading-none mb-4">Recipe Detail</h2>
+<div class="flex gap-4">
+<div class="flex flex-col">
+<span class="font-['Inter'] font-bold text-[0.5rem] tracking-widest text-outline uppercase">PREP TIME</span>
+<span class="font-medium text-sm">25 MIN</span>
+</div>
+<div class="w-px h-8 bg-outline-variant/30"></div>
+<div class="flex flex-col">
+<span class="font-['Inter'] font-bold text-[0.5rem] tracking-widest text-outline uppercase">DIFFICULTY</span>
+<span class="font-medium text-sm">MODERATE</span>
+</div>
+</div>
+</div>
+<!-- Nutritional Breakdown (Bento Style) -->
+<section class="mb-12 bg-surface-container-low p-6 rounded-lg">
+<h3 class="font-['Inter'] font-bold text-[0.6875rem] tracking-widest text-outline uppercase mb-6">NUTRITION_DATA</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded border border-outline-variant/10">
+<span class="block text-[0.625rem] font-bold text-outline tracking-wider mb-1">CALORIES</span>
+<span class="text-xl font-bold">420 <span class="text-[0.625rem] font-normal">KCAL</span></span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded border border-outline-variant/10">
+<span class="block text-[0.625rem] font-bold text-outline tracking-wider mb-1">PROTEIN</span>
+<span class="text-xl font-bold">28 <span class="text-[0.625rem] font-normal">G</span></span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded border border-outline-variant/10">
+<span class="block text-[0.625rem] font-bold text-outline tracking-wider mb-1">CARBS</span>
+<span class="text-xl font-bold">45 <span class="text-[0.625rem] font-normal">G</span></span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded border border-outline-variant/10">
+<span class="block text-[0.625rem] font-bold text-outline tracking-wider mb-1">FAT</span>
+<span class="text-xl font-bold">14 <span class="text-[0.625rem] font-normal">G</span></span>
+</div>
+</div>
+</section>
+<!-- Ingredients Section -->
+<section class="mb-12">
+<div class="flex items-end justify-between mb-6">
+<h3 class="font-['Inter'] font-bold text-2xl tracking-tighter text-black uppercase leading-none">Ingredients</h3>
+<span class="font-['Inter'] font-bold text-[0.6875rem] tracking-widest text-outline uppercase pb-1">QTY: 08</span>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 group cursor-pointer">
+<div class="w-5 h-5 border border-outline flex items-center justify-center rounded-sm bg-surface transition-colors group-hover:bg-surface-container">
+<span class="material-symbols-outlined text-[14px] text-primary hidden">check</span>
+</div>
+<span class="body-md text-on-surface flex-1">Fresh Spinach Leaves</span>
+<span class="font-['Inter'] font-bold text-[0.6875rem] tracking-tight text-outline">200G</span>
+</li>
+<li class="flex items-center gap-4 group cursor-pointer">
+<div class="w-5 h-5 border border-outline flex items-center justify-center rounded-sm bg-surface transition-colors group-hover:bg-surface-container">
+<span class="material-symbols-outlined text-[14px] text-primary hidden">check</span>
+</div>
+<span class="body-md text-on-surface flex-1">Large Organic Eggs</span>
+<span class="font-['Inter'] font-bold text-[0.6875rem] tracking-tight text-outline">2 UNITS</span>
+</li>
+<li class="flex items-center gap-4 group cursor-pointer">
+<div class="w-5 h-5 border border-outline flex items-center justify-center rounded-sm bg-surface transition-colors group-hover:bg-surface-container">
+<span class="material-symbols-outlined text-[14px] text-primary hidden">check</span>
+</div>
+<span class="body-md text-on-surface flex-1">Greek Yogurt (Plain)</span>
+<span class="font-['Inter'] font-bold text-[0.6875rem] tracking-tight text-outline">120G</span>
+</li>
+<li class="flex items-center gap-4 group cursor-pointer">
+<div class="w-5 h-5 border border-outline flex items-center justify-center rounded-sm bg-surface transition-colors group-hover:bg-surface-container">
+<span class="material-symbols-outlined text-[14px] text-primary hidden">check</span>
+</div>
+<span class="body-md text-on-surface flex-1">Whole Wheat Flour</span>
+<span class="font-['Inter'] font-bold text-[0.6875rem] tracking-tight text-outline">50G</span>
+</li>
+<li class="flex items-center gap-4 group cursor-pointer">
+<div class="w-5 h-5 border border-outline flex items-center justify-center rounded-sm bg-surface transition-colors group-hover:bg-surface-container">
+<span class="material-symbols-outlined text-[14px] text-primary hidden">check</span>
+</div>
+<span class="body-md text-on-surface flex-1">Sea Salt &amp; Cracked Pepper</span>
+<span class="font-['Inter'] font-bold text-[0.6875rem] tracking-tight text-outline">AD LIB.</span>
+</li>
+</ul>
+</section>
+<!-- Preparation Steps -->
+<section class="mb-12">
+<h3 class="font-['Inter'] font-bold text-2xl tracking-tighter text-black uppercase mb-8">Preparation</h3>
+<div class="space-y-12">
+<!-- Step 1 -->
+<div class="relative">
+<span class="absolute -top-6 -left-2 text-6xl font-black text-outline-variant/20 select-none z-0">01</span>
+<div class="relative z-10 pt-2">
+<span class="font-['Inter'] font-bold text-[0.6875rem] tracking-widest text-outline uppercase block mb-2">INITIAL_PHASE</span>
+<p class="body-md leading-relaxed text-on-surface">Preheat your oven to 180°C (350°F). Lightly grease a medium-sized baking dish with olive oil or parchment paper to prevent adhesion during the curing process.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<span class="absolute -top-6 -left-2 text-6xl font-black text-outline-variant/20 select-none z-0">02</span>
+<div class="relative z-10 pt-2">
+<span class="font-['Inter'] font-bold text-[0.6875rem] tracking-widest text-outline uppercase block mb-2">INTEGRATION</span>
+<p class="body-md leading-relaxed text-on-surface">In a large architectural-grade mixing bowl, combine the spinach, eggs, and Greek yogurt. Fold until the structural integrity of the mixture is uniform and consistent.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<span class="absolute -top-6 -left-2 text-6xl font-black text-outline-variant/20 select-none z-0">03</span>
+<div class="relative z-10 pt-2">
+<span class="font-['Inter'] font-bold text-[0.6875rem] tracking-widest text-outline uppercase block mb-2">THERMAL_PROCESSING</span>
+<p class="body-md leading-relaxed text-on-surface">Transfer the compound to the prepared dish. Bake for approximately 15-18 minutes until the edges exhibit a golden-brown finish and the center reaches a solidified state.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-safe bg-[#f9f9f9] dark:bg-neutral-900 z-50 border-t border-[#c6c6c6]/20">
+<a class="flex flex-col items-center justify-center bg-black dark:bg-white text-white dark:text-black rounded-sm py-2 px-4 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-['Inter'] font-bold text-[10px] tracking-widest uppercase">EXPLORE</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 dark:text-neutral-400 py-2 px-4 hover:bg-[#dadada] dark:hover:bg-neutral-700 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-['Inter'] font-bold text-[10px] tracking-widest uppercase">SAVED</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 dark:text-neutral-400 py-2 px-4 hover:bg-[#dadada] dark:hover:bg-neutral-700 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-['Inter'] font-bold text-[10px] tracking-widest uppercase">PLANNER</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 dark:text-neutral-400 py-2 px-4 hover:bg-[#dadada] dark:hover:bg-neutral-700 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] font-bold text-[10px] tracking-widest uppercase">PROFILE</span>
+</a>
+</nav>
+</body></html>

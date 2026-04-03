@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile Parameters - Smart Recipe Finder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#e2e2e2",
+              "on-surface": "#1a1c1c",
+              "on-error-container": "#410002",
+              "on-secondary-fixed": "#1b1c1c",
+              "on-surface-variant": "#474747",
+              "surface-tint": "#5e5e5e",
+              "surface-bright": "#f9f9f9",
+              "on-secondary": "#ffffff",
+              "on-background": "#1a1c1c",
+              "primary": "#000000",
+              "surface-dim": "#dadada",
+              "surface-container": "#eeeeee",
+              "on-primary-fixed-variant": "#e2e2e2",
+              "secondary-fixed": "#c8c6c6",
+              "tertiary-container": "#747475",
+              "surface-container-highest": "#e2e2e2",
+              "on-tertiary-container": "#ffffff",
+              "error": "#ba1a1a",
+              "inverse-on-surface": "#f1f1f1",
+              "on-tertiary-fixed-variant": "#e3e2e2",
+              "secondary": "#5f5e5e",
+              "on-primary-fixed": "#ffffff",
+              "tertiary-fixed": "#5e5e5f",
+              "surface-container-lowest": "#ffffff",
+              "tertiary": "#3a3c3c",
+              "inverse-primary": "#c6c6c6",
+              "primary-fixed": "#5e5e5e",
+              "on-tertiary-fixed": "#ffffff",
+              "on-primary-container": "#ffffff",
+              "on-tertiary": "#e3e2e2",
+              "secondary-container": "#d6d4d3",
+              "background": "#f9f9f9",
+              "on-error": "#ffffff",
+              "surface": "#f9f9f9",
+              "outline-variant": "#c6c6c6",
+              "on-secondary-container": "#1b1c1c",
+              "inverse-surface": "#2f3131",
+              "surface-container-low": "#f3f3f3",
+              "on-primary": "#e2e2e2",
+              "surface-container-high": "#e8e8e8",
+              "primary-fixed-dim": "#474747",
+              "on-secondary-fixed-variant": "#3b3b3b",
+              "secondary-fixed-dim": "#acabab",
+              "error-container": "#ffdad6",
+              "outline": "#777777",
+              "tertiary-fixed-dim": "#464747",
+              "primary-container": "#3b3b3b"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .blueprint-grid {
+            background-image: 
+                linear-gradient(to right, rgba(198, 198, 198, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(198, 198, 198, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ghost-border {
+            border: 1px solid rgba(198, 198, 198, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container blueprint-grid min-h-screen pb-32">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full z-50 bg-[#f9f9f9]/80 dark:bg-zinc-900/80 backdrop-blur-md">
+<div class="flex items-center h-16 px-6 w-full max-w-none">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-black dark:text-white cursor-pointer active:scale-95 duration-150">arrow_back</span>
+<h1 class="font-['Inter'] font-bold tracking-tight uppercase text-sm text-black dark:text-white">PROFILE_PARAMETERS</h1>
+</div>
+<div class="ml-auto flex items-center gap-6">
+<span class="text-[10px] font-mono opacity-30 tracking-[0.2em] hidden md:block">REF_NO. 882-01A</span>
+<span class="text-[10px] font-mono opacity-30 tracking-[0.2em] hidden md:block">SHEET: 04/12</span>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-4xl mx-auto space-y-16">
+<!-- Section 1: User Identity (Architectural Layout) -->
+<section class="relative">
+<div class="absolute -top-6 -left-2 text-[10px] font-mono opacity-20 tracking-widest">COORD: 40.7128° N, 74.0060° W</div>
+<div class="flex flex-col md:flex-row gap-12 items-start">
+<!-- Avatar Blueprint -->
+<div class="relative w-40 h-40 bg-surface-container-low ghost-border overflow-hidden">
+<div class="absolute inset-0 opacity-30">
+<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#777777" stroke-width="1" x1="0" x2="100%" y1="0" y2="100%"></line>
+<line stroke="#777777" stroke-width="1" x1="0" x2="100%" y1="100%" y2="0"></line>
+</svg>
+</div>
+<img alt="User avatar" class="w-full h-full object-cover relative z-10" data-alt="minimalist geometric abstract avatar in monochrome black and white style on a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3RuPAXtwDnBwdJG_f8fb2tW1GTTGuPY0ewXzVPlL8suyl6UVjXW7OwJPZPNRZ_jcSKbBPmKG2BcdEvdhSzatwg13KA8FgtKUQvXfBGNunDy2DuGS1QImJKBWW_JV7YcBVhvYjlug9vcADETjkqj3pTsbizEh7GwqfuvPRLTmqca9QRqp-7tQPuzUsJ9rMtZVXKD5RMk0O_hZ8Z2QaC63AwWAppXctJXQhjHNejrq8I0Zo0CMxtcOfXY38MVKvFix6WN781RP4VWc"/>
+<div class="absolute bottom-1 right-1 bg-primary text-on-primary text-[8px] px-1 font-mono tracking-tighter">LVL_01</div>
+</div>
+<div class="flex-1 space-y-4">
+<div class="space-y-1">
+<label class="text-[10px] font-bold tracking-[0.15em] text-outline uppercase">ENTITY_DESIGNATION</label>
+<h2 class="text-5xl font-extrabold tracking-tighter leading-none uppercase">ARCHITECT_01</h2>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold tracking-[0.15em] text-outline uppercase">COMMUNICATION_RELAY</label>
+<p class="text-xl font-medium tracking-tight opacity-70">USER@SCHEMATIC.COM</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Dietary Schematics -->
+<section class="space-y-8 bg-surface-container-low p-8 rounded-lg">
+<div class="flex justify-between items-end border-b border-outline-variant/30 pb-4">
+<h3 class="text-lg font-bold tracking-tight uppercase">DIETARY_SCHEMATICS</h3>
+<span class="text-[10px] font-mono opacity-40 uppercase">Filter_logic: OR_EXCLUSIVE</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+<!-- Vegan Checkbox -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex flex-col">
+<span class="text-sm font-bold tracking-wider uppercase">VEGAN</span>
+<span class="text-[10px] text-outline-variant">PLANT_BASED_ONLY</span>
+</div>
+<input class="w-5 h-5 border-2 border-outline rounded-sm bg-transparent checked:bg-primary checked:border-primary transition-all duration-200" type="checkbox"/>
+</div>
+<!-- Keto Checkbox -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex flex-col">
+<span class="text-sm font-bold tracking-wider uppercase">KETO</span>
+<span class="text-[10px] text-outline-variant">L_CARB_H_FAT</span>
+</div>
+<input checked="" class="w-5 h-5 border-2 border-outline rounded-sm bg-transparent checked:bg-primary checked:border-primary transition-all duration-200" type="checkbox"/>
+</div>
+<!-- Gluten Free Checkbox -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex flex-col">
+<span class="text-sm font-bold tracking-wider uppercase">GLUTEN_FREE</span>
+<span class="text-[10px] text-outline-variant">C_ALBUMIN_REMOVED</span>
+</div>
+<input class="w-5 h-5 border-2 border-outline rounded-sm bg-transparent checked:bg-primary checked:border-primary transition-all duration-200" type="checkbox"/>
+</div>
+<!-- Paleo Checkbox -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex flex-col">
+<span class="text-sm font-bold tracking-wider uppercase">PALEO</span>
+<span class="text-[10px] text-outline-variant">ANCESTRAL_PROTOCOL</span>
+</div>
+<input class="w-5 h-5 border-2 border-outline rounded-sm bg-transparent checked:bg-primary checked:border-primary transition-all duration-200" type="checkbox"/>
+</div>
+</div>
+</section>
+<!-- Section 3: System Notifications (The Blueprint Toggles) -->
+<section class="space-y-10">
+<h3 class="text-lg font-bold tracking-tight uppercase flex items-center gap-2">
+                SYSTEM_NOTIFICATIONS
+                <span class="h-px bg-outline-variant/30 flex-1"></span>
+</h3>
+<div class="space-y-8">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-bold text-sm tracking-wide uppercase">RECIPE_ALERTS</p>
+<p class="text-xs text-outline font-medium">PUSH_BROADCAST: TRENDING_SCHEMATICS</p>
+</div>
+<button class="w-12 h-6 bg-primary rounded-full relative transition-colors">
+<div class="absolute right-1 top-1 w-4 h-4 bg-on-primary rounded-full"></div>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-bold text-sm tracking-wide uppercase">INVENTORY_REMAINDERS</p>
+<p class="text-xs text-outline font-medium">EXPIRATION_THRESHOLD: 48H</p>
+</div>
+<button class="w-12 h-6 bg-surface-container-highest rounded-full relative transition-colors">
+<div class="absolute left-1 top-1 w-4 h-4 bg-outline rounded-full"></div>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 4: Authentication Actions -->
+<section class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<button class="bg-primary text-on-primary h-14 font-bold tracking-widest text-xs uppercase flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm">lock_reset</span>
+                    CHANGE_PASSCODE
+                </button>
+<button class="ghost-border text-primary h-14 font-bold tracking-widest text-xs uppercase flex items-center justify-center gap-2 hover:bg-error/5 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm">no_accounts</span>
+                    DEACTIVATE_ENTITY
+                </button>
+</div>
+<div class="text-center pt-8">
+<p class="text-[9px] font-mono uppercase tracking-[0.4em] text-outline-variant">SYSTEM_REVISION_V2.04.1 // KERNEL_ESTABLISHED_2024</p>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-safe bg-[#f9f9f9] dark:bg-neutral-900 z-50 border-t border-[#c6c6c6]/20">
+<!-- EXPLORE Destination -->
+<div class="flex flex-col items-center justify-center text-neutral-500 dark:text-neutral-400 py-2 px-4 hover:bg-[#dadada] dark:hover:bg-neutral-700 transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-['Inter'] font-bold text-[10px] tracking-widest uppercase">EXPLORE</span>
+</div>
+<!-- SAVED Destination -->
+<div class="flex flex-col items-center justify-center text-neutral-500 dark:text-neutral-400 py-2 px-4 hover:bg-[#dadada] dark:hover:bg-neutral-700 transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-['Inter'] font-bold text-[10px] tracking-widest uppercase">SAVED</span>
+</div>
+<!-- PLANNER Destination -->
+<div class="flex flex-col items-center justify-center text-neutral-500 dark:text-neutral-400 py-2 px-4 hover:bg-[#dadada] dark:hover:bg-neutral-700 transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-['Inter'] font-bold text-[10px] tracking-widest uppercase">PLANNER</span>
+</div>
+<!-- PROFILE Destination (ACTIVE) -->
+<div class="flex flex-col items-center justify-center bg-black dark:bg-white text-white dark:text-black rounded-sm py-2 px-4 transition-all duration-200 ease-in-out cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] font-bold text-[10px] tracking-widest uppercase">PROFILE</span>
+</div>
+</nav>
+</body></html>

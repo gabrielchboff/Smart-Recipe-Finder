@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Recipe Finder | Home</title>
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/scripts/main.js" type="module"></script>
+  </head>
+  <body>
+    <header class="header" id="main-header"></header>
+
+    <main class="main">
+      <section class="hero">
+        <h1 class="hero__title">What's in your kitchen?</h1>
+        <p class="hero__subtitle">
+          Enter the ingredients you have and discover delicious recipes you can
+          make right now.
+        </p>
+
+        <div class="search-box">
+          <div class="chips-input" id="chipsInput">
+            <span id="chipsContainer"></span>
+            <input
+              type="text"
+              class="chips-input__field"
+              id="ingredientInput"
+              placeholder="Type an ingredient (e.g. chicken, garlic, rice...)"
+            />
+          </div>
+          <p class="ingredient-count" id="ingredientCount"></p>
+          <div class="search-actions">
+            <button class="btn btn--primary btn--lg" id="findRecipesBtn">
+              Find Recipes
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section__title">Trending Recipes</h2>
+        <p class="section__subtitle">Popular recipes for inspiration</p>
+        <div class="grid grid--3" id="trendingGrid"></div>
+      </section>
+    </main>
+
+    <footer class="footer" id="main-footer"></footer>
+    <nav class="bottom-nav" id="bottom-nav"></nav>
+  </body>
+</html>

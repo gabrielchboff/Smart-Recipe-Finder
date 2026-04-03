@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NEW_ENTITY_REGISTRATION</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-grid {
+            background-image: 
+                linear-gradient(to right, rgba(198, 198, 198, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(198, 198, 198, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .ghost-border {
+            border: 1px solid rgba(198, 198, 198, 0.2);
+        }
+        .blueprint-x::before, .blueprint-x::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top right, transparent calc(50% - 0.5px), rgba(198, 198, 198, 0.3) 50%, transparent calc(50% + 0.5px)),
+                        linear-gradient(to top left, transparent calc(50% - 0.5px), rgba(198, 198, 198, 0.3) 50%, transparent calc(50% + 0.5px));
+            pointer-events: none;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#ffffff",
+              "on-error": "#ffffff",
+              "on-error-container": "#410002",
+              "error": "#ba1a1a",
+              "secondary": "#5f5e5e",
+              "on-secondary-fixed": "#1b1c1c",
+              "on-secondary-fixed-variant": "#3b3b3b",
+              "surface-bright": "#f9f9f9",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#5e5e5e",
+              "outline": "#777777",
+              "surface-container": "#eeeeee",
+              "on-surface-variant": "#474747",
+              "inverse-surface": "#2f3131",
+              "surface": "#f9f9f9",
+              "primary": "#000000",
+              "surface-container-high": "#e8e8e8",
+              "primary-container": "#3b3b3b",
+              "background": "#f9f9f9",
+              "secondary-container": "#d6d4d3",
+              "on-surface": "#1a1c1c",
+              "surface-variant": "#e2e2e2",
+              "secondary-fixed-dim": "#acabab",
+              "on-tertiary-container": "#ffffff",
+              "on-secondary-container": "#1b1c1c",
+              "on-tertiary-fixed-variant": "#e3e2e2",
+              "on-primary": "#e2e2e2",
+              "on-primary-fixed": "#ffffff",
+              "on-background": "#1a1c1c",
+              "surface-container-low": "#f3f3f3",
+              "on-primary-fixed-variant": "#e2e2e2",
+              "surface-tint": "#5e5e5e",
+              "primary-fixed-dim": "#474747",
+              "inverse-on-surface": "#f1f1f1",
+              "tertiary-fixed": "#5e5e5f",
+              "tertiary-fixed-dim": "#464747",
+              "surface-dim": "#dadada",
+              "outline-variant": "#c6c6c6",
+              "inverse-primary": "#c6c6c6",
+              "error-container": "#ffdad6",
+              "secondary-fixed": "#c8c6c6",
+              "on-tertiary": "#e3e2e2",
+              "tertiary": "#3a3c3c",
+              "on-tertiary-fixed": "#ffffff",
+              "tertiary-container": "#747475",
+              "surface-container-highest": "#e2e2e2"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen blueprint-grid selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar Fragment (Suppressing Nav for Task-Focused Page) -->
+<header class="fixed top-0 w-full z-50 bg-[#f9f9f9]/80 backdrop-blur-xl flex items-center justify-between px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-zinc-900 active:scale-95 transition-transform duration-150" data-icon="arrow_back" style="">arrow_back</button>
+<span class="font-['Inter'] uppercase tracking-widest text-[0.6875rem] font-bold text-zinc-900" style="">NEW ENTITY</span>
+</div>
+<div class="hidden md:flex items-center gap-8 font-['Inter'] uppercase tracking-widest text-[0.625rem] font-bold text-zinc-500">
+<span class="" style="">A-02 // REGISTRATION</span>
+</div>
+<div class="flex items-center">
+<span class="text-zinc-900 font-black tracking-tighter" style="">CULINARY_ARCH</span>
+</div>
+</header>
+<main class="pt-32 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 pb-32">
+<!-- Left Column: Branding & Annotations -->
+<div class="md:col-span-5 flex flex-col justify-between py-8">
+<div>
+<div class="inline-block px-2 py-1 bg-primary text-on-primary text-[0.625rem] font-bold tracking-[0.2em] mb-6" style="">
+                    SYSTEM_INITIATION
+                </div>
+<h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.85] text-primary mb-8" style="">REGISTER</h1>
+<p class="text-sm text-secondary leading-relaxed max-w-sm" style="">
+                    DEFINING THE ARCHITECTURAL PARAMETERS FOR CULINARY EXECUTION. PHASE 01: IDENTITY ESTABLISHMENT.
+                </p>
+</div>
+<!-- Technical Annotations -->
+<div class="mt-12 space-y-4 border-l-2 border-outline-variant pl-6">
+<div class="flex flex-col">
+<span class="text-[0.625rem] font-bold tracking-widest text-outline" style="">SCALE:</span>
+<span class="text-lg font-mono font-medium" style="">1:1</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[0.625rem] font-bold tracking-widest text-outline" style="">SHEET:</span>
+<span class="text-lg font-mono font-medium" style="">A-02</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[0.625rem] font-bold tracking-widest text-outline" style="">COORDINATES:</span>
+<span class="text-lg font-mono font-medium" style="">40.7128° N, 74.0060° W</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Registration Form -->
+<div class="md:col-span-7">
+<div class="bg-surface-container-low p-8 md:p-12 relative overflow-hidden">
+<!-- Decorative Blueprint X -->
+<div class="absolute top-0 right-0 w-32 h-32 blueprint-x opacity-20"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-baseline mb-12">
+<span class="text-[0.6875rem] font-bold tracking-[0.3em] text-outline uppercase" style="">INPUT_IDENTIFIER</span>
+<span class="h-px flex-grow mx-4 bg-outline-variant/30"></span>
+<span class="text-[0.6875rem] font-mono text-outline" style="">FORM_77-B</span>
+</div>
+<form class="space-y-10">
+<!-- Full Name -->
+<div class="group relative">
+<label class="block text-[0.6875rem] font-bold tracking-widest text-outline uppercase mb-2 group-focus-within:text-primary transition-colors" style="">
+                                Full Name
+                            </label>
+<input class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant/40 px-0 py-3 text-sm focus:ring-0 focus:border-primary transition-all placeholder:text-outline-variant font-mono" placeholder="ENTER_ENTITY_LEGAL_NAME" type="text"/>
+</div>
+<!-- Email Address -->
+<div class="group relative">
+<label class="block text-[0.6875rem] font-bold tracking-widest text-outline uppercase mb-2 group-focus-within:text-primary transition-colors" style="">
+                                Email Address
+                            </label>
+<input class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant/40 px-0 py-3 text-sm focus:ring-0 focus:border-primary transition-all placeholder:text-outline-variant font-mono" placeholder="COMMUNICATION_ENDPOINT@DOMAIN.COM" type="email"/>
+</div>
+<!-- Password Fields Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="group relative">
+<label class="block text-[0.6875rem] font-bold tracking-widest text-outline uppercase mb-2 group-focus-within:text-primary transition-colors" style="">
+                                    Password
+                                </label>
+<input class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant/40 px-0 py-3 text-sm focus:ring-0 focus:border-primary transition-all placeholder:text-outline-variant font-mono" placeholder="••••••••••••" type="password"/>
+</div>
+<div class="group relative">
+<label class="block text-[0.6875rem] font-bold tracking-widest text-outline uppercase mb-2 group-focus-within:text-primary transition-colors" style="">
+                                    Confirm Password
+                                </label>
+<input class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant/40 px-0 py-3 text-sm focus:ring-0 focus:border-primary transition-all placeholder:text-outline-variant font-mono" placeholder="••••••••••••" type="password"/>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+<button class="w-full md:w-auto px-10 py-5 bg-primary text-on-primary text-[0.75rem] font-bold tracking-[0.2em] flex items-center justify-center gap-4 hover:bg-primary-container active:scale-95 transition-all group" style="">
+                                CREATE_ENTITY
+                                <span class="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="arrow_forward" style="">arrow_forward</span>
+</button>
+<a class="text-[0.625rem] font-bold tracking-widest text-secondary hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1" href="#" style="">
+                                ALREADY_HAVE_AN_ACCOUNT? LOGIN
+                            </a>
+</div>
+</form>
+</div>
+</div>
+<!-- Footer Schematic -->
+<div class="mt-8 grid grid-cols-3 gap-4">
+<div class="h-24 ghost-border blueprint-x relative flex items-end p-2">
+<span class="text-[0.5rem] font-mono text-outline-variant" style="">SEC_01.A</span>
+</div>
+<div class="h-24 ghost-border blueprint-x relative flex items-end p-2">
+<span class="text-[0.5rem] font-mono text-outline-variant" style="">SEC_01.B</span>
+</div>
+<div class="h-24 ghost-border blueprint-x relative flex items-end p-2">
+<span class="text-[0.5rem] font-mono text-outline-variant" style="">SEC_01.C</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Background Elements -->
+<div class="fixed top-0 right-0 p-6 pointer-events-none opacity-20 hidden lg:block">
+<div class="w-64 h-64 border border-outline border-dashed rounded-full flex items-center justify-center">
+<div class="w-48 h-48 border border-outline rounded-full flex items-center justify-center">
+<div class="w-32 h-32 border border-outline border-dashed rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Technical Footer Labels -->
+<div class="fixed bottom-6 left-6 flex items-center gap-6 font-mono text-[0.625rem] text-outline-variant pointer-events-none">
+<span class="" style="">VER: 4.0.12-BETA</span>
+<span class="" style="">LAT: 40.7128</span>
+<span class="" style="">LONG: -74.0060</span>
+<span class="bg-primary px-2 text-white" style="">READY</span>
+</div>
+<nav class="fixed bottom-0 w-full z-50 border-t border-[#c6c6c6]/20 bg-[#f9f9f9] dark:bg-neutral-900 flex justify-around items-center h-20 px-4 pb-safe">
+<a class="flex flex-col items-center justify-center bg-black dark:bg-white text-white dark:text-black rounded-sm py-2 px-4 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="font-['Inter'] font-bold text-[10px] tracking-widest uppercase">EXPLORE</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 dark:text-neutral-400 py-2 px-4 hover:bg-[#dadada] dark:hover:bg-neutral-700 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1">bookmark</span>
+<span class="font-['Inter'] font-bold text-[10px] tracking-widest uppercase">SAVED</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 dark:text-neutral-400 py-2 px-4 hover:bg-[#dadada] dark:hover:bg-neutral-700 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1">calendar_today</span>
+<span class="font-['Inter'] font-bold text-[10px] tracking-widest uppercase">PLANNER</span>
+</a>
+<a class="flex flex-col items-center justify-center text-neutral-500 dark:text-neutral-400 py-2 px-4 hover:bg-[#dadada] dark:hover:bg-neutral-700 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Inter'] font-bold text-[10px] tracking-widest uppercase">PROFILE</span>
+</a>
+</nav></body></html>

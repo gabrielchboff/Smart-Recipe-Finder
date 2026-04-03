@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RECIPE_SCHEMATIC | INPUT_MOD_01</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#585c63",
+              "on-secondary-container": "#4e5259",
+              "secondary-dim": "#4f535a",
+              "surface-dim": "#d1dce0",
+              "on-secondary-fixed": "#3b4046",
+              "on-primary-fixed": "#3f3f3f",
+              "primary-container": "#e2e2e2",
+              "inverse-primary": "#ffffff",
+              "on-surface": "#2b3437",
+              "error": "#9f403d",
+              "surface-variant": "#dbe4e7",
+              "secondary": "#5b5f67",
+              "outline-variant": "#abb3b7",
+              "primary-fixed": "#e2e2e2",
+              "on-tertiary-fixed-variant": "#345576",
+              "on-primary-fixed-variant": "#5b5b5b",
+              "on-error": "#fff7f6",
+              "error-dim": "#4e0309",
+              "secondary-fixed-dim": "#d1d4dd",
+              "on-surface-variant": "#586064",
+              "secondary-fixed": "#dfe2eb",
+              "primary-dim": "#525252",
+              "on-tertiary-fixed": "#143858",
+              "surface-bright": "#f8f9fa",
+              "secondary-container": "#dfe2eb",
+              "surface-container-highest": "#dbe4e7",
+              "surface-container-high": "#e3e9ec",
+              "tertiary-fixed-dim": "#a9c9f0",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#0c0f10",
+              "error-container": "#fe8983",
+              "inverse-on-surface": "#9b9d9e",
+              "on-tertiary-container": "#2a4b6c",
+              "background": "#f8f9fa",
+              "tertiary-dim": "#355577",
+              "surface-container": "#eaeff1",
+              "on-tertiary": "#f7f9ff",
+              "on-primary-container": "#525252",
+              "tertiary-container": "#b7d7ff",
+              "surface-container-low": "#f1f4f6",
+              "outline": "#737c7f",
+              "on-error-container": "#752121",
+              "on-background": "#2b3437",
+              "on-secondary": "#f7f9ff",
+              "on-primary": "#f8f8f8",
+              "primary-fixed-dim": "#d4d4d4",
+              "tertiary-fixed": "#b7d7ff",
+              "surface": "#f8f9fa",
+              "primary": "#5e5e5e",
+              "tertiary": "#416283",
+              "surface-tint": "#5e5e5e"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .blueprint-grid {
+        background-image: radial-gradient(circle, #abb3b7 1px, transparent 1px);
+        background-size: 24px 24px;
+        opacity: 0.1;
+      }
+      .blueprint-x {
+        position: relative;
+        overflow: hidden;
+      }
+      .blueprint-x::before, .blueprint-x::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 142%;
+        height: 1px;
+        background-color: #737c7f;
+        opacity: 0.2;
+      }
+      .blueprint-x::before { transform: translate(-50%, -50%) rotate(45deg); }
+      .blueprint-x::after { transform: translate(-50%, -50%) rotate(-45deg); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-tertiary-container selection:text-on-tertiary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black tracking-[0.2em] text-slate-800 dark:text-slate-100 font-headline uppercase">RECIPE_SCHEMATIC</span>
+</div>
+<div class="flex items-center gap-8">
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-900 dark:text-white font-bold border-b-2 border-slate-900 dark:border-white font-label text-xs uppercase tracking-widest px-1" href="#">Explore</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-label text-xs uppercase tracking-widest px-1" href="#">Saved</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-label text-xs uppercase tracking-widest px-1" href="#">Planner</a>
+</nav>
+<div class="flex items-center gap-4 text-slate-700 dark:text-slate-200">
+<span class="material-symbols-outlined cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors p-2" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 flex flex-col pt-20 border-r border-slate-300/20 bg-slate-100 dark:bg-slate-950 z-40 hidden md:flex">
+<div class="px-6 mb-8">
+<h2 class="font-headline font-bold text-slate-800 dark:text-slate-100">SEC_01</h2>
+<p class="font-label uppercase tracking-tighter text-[10px] text-slate-500">PG_04</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900 font-bold flex items-center gap-4 px-6 py-4 translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Explore</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 px-6 py-4 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Saved</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 px-6 py-4 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Planner</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 px-6 py-4 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Profile</span>
+</a>
+</nav>
+<div class="mt-auto p-6 space-y-4">
+<button class="w-full bg-primary text-on-primary py-3 font-label text-[10px] tracking-widest uppercase hover:opacity-90 transition-opacity">
+                NEW_ENTRY
+            </button>
+<div class="space-y-2 border-t border-outline-variant/20 pt-4">
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 text-[10px] font-label uppercase" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span> Settings
+                </a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 text-[10px] font-label uppercase" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span> Support
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-64 pt-16 min-h-screen relative overflow-hidden">
+<div class="blueprint-grid absolute inset-0 pointer-events-none"></div>
+<!-- Hero Section -->
+<section class="px-8 py-12 border-b border-outline-variant/10">
+<div class="flex flex-col lg:flex-row gap-12 items-end">
+<div class="flex-1">
+<span class="font-label text-xs text-tertiary mb-2 block uppercase tracking-widest">MODULE_ID: INPUT_MOD_01</span>
+<h1 class="font-headline font-black text-6xl md:text-8xl tracking-widest uppercase text-on-surface">INPUT_MOD_01</h1>
+<div class="mt-8 flex gap-4 items-center">
+<div class="h-[1px] w-24 bg-primary"></div>
+<span class="font-label text-xs uppercase text-outline">PRIMARY_ENTRY_INTERFACE</span>
+</div>
+</div>
+<div class="w-full lg:w-96 aspect-video bg-surface-container-low border border-outline-variant/30 blueprint-x flex items-center justify-center relative group">
+<span class="font-label text-[10px] text-outline uppercase bg-surface-container-low px-2 z-10">Visual Reference</span>
+<div class="absolute top-2 left-2 font-label text-[8px] text-outline/40">REF: 001-A</div>
+<div class="absolute bottom-2 right-2 font-label text-[8px] text-outline/40">COORD: 45.0N / 90.0W</div>
+</div>
+</div>
+</section>
+<!-- Form/Two Column Layout -->
+<div class="p-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Input -->
+<div class="lg:col-span-8 space-y-8">
+<div class="bg-surface-container-lowest p-8 border border-transparent shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline font-bold text-xl uppercase tracking-tight">Ingredient Entry</h3>
+<span class="font-label text-[10px] text-outline uppercase">Input Format: raw_text</span>
+</div>
+<div class="relative">
+<textarea class="w-full h-64 bg-surface-container-low border-b-2 border-outline focus:border-tertiary focus:ring-0 resize-none p-6 font-body text-on-surface-variant placeholder:text-outline/40 placeholder:uppercase placeholder:font-label placeholder:text-xs" placeholder="Enter technical specifications for ingredients... (e.g. 500g Flour, Type 00, 12% Protein)"></textarea>
+<div class="absolute bottom-4 right-4 flex gap-2">
+<span class="font-label text-[10px] text-outline/60 uppercase">Line: 001</span>
+<span class="font-label text-[10px] text-outline/60 uppercase">Char: 000</span>
+</div>
+</div>
+<div class="mt-8 flex justify-between items-center">
+<div class="flex gap-4">
+<button class="bg-surface-container-highest px-6 py-3 font-label text-xs uppercase tracking-widest hover:bg-surface-variant transition-colors">
+                                Import CSV
+                            </button>
+<button class="bg-surface-container-highest px-6 py-3 font-label text-xs uppercase tracking-widest hover:bg-surface-variant transition-colors">
+                                Scan Manifest
+                            </button>
+</div>
+<button class="bg-primary text-on-primary px-10 py-4 font-label text-xs uppercase tracking-[0.2em] font-bold hover:opacity-90 transition-opacity">
+                            PARSE_SCHEMA
+                        </button>
+</div>
+</div>
+<!-- Documentation Artifact -->
+<div class="grid grid-cols-3 gap-4">
+<div class="bg-surface-container-low p-4 space-y-2">
+<span class="font-label text-[8px] text-outline uppercase">Structural Integrity</span>
+<div class="h-1 bg-outline-variant/20 overflow-hidden">
+<div class="h-full bg-tertiary w-3/4"></div>
+</div>
+<span class="font-label text-[10px] text-on-surface uppercase block">Validated 75%</span>
+</div>
+<div class="bg-surface-container-low p-4 space-y-2">
+<span class="font-label text-[8px] text-outline uppercase">Database Sync</span>
+<div class="h-1 bg-outline-variant/20 overflow-hidden">
+<div class="h-full bg-secondary w-full"></div>
+</div>
+<span class="font-label text-[10px] text-on-surface uppercase block">Active Link</span>
+</div>
+<div class="bg-surface-container-low p-4 space-y-2">
+<span class="font-label text-[8px] text-outline uppercase">Error Detection</span>
+<div class="h-1 bg-outline-variant/20 overflow-hidden">
+<div class="h-full bg-error w-1/12"></div>
+</div>
+<span class="font-label text-[10px] text-on-surface uppercase block">Nominal</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Metadata & Inventory -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Active Inventory -->
+<div class="bg-surface-container-low p-6 border border-transparent">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-label text-[10px] font-bold uppercase tracking-widest">Active Inventory</h4>
+<span class="material-symbols-outlined text-sm text-outline" data-icon="inventory_2">inventory_2</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<div class="bg-surface-container-lowest border border-outline-variant/30 px-3 py-2 flex items-center gap-3">
+<span class="font-label text-[10px] text-on-surface uppercase">Flour_00</span>
+<span class="material-symbols-outlined text-xs text-outline cursor-pointer" data-icon="close">close</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 px-3 py-2 flex items-center gap-3">
+<span class="font-label text-[10px] text-on-surface uppercase">H2O_Purified</span>
+<span class="material-symbols-outlined text-xs text-outline cursor-pointer" data-icon="close">close</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 px-3 py-2 flex items-center gap-3">
+<span class="font-label text-[10px] text-on-surface uppercase">NaCl_Fine</span>
+<span class="material-symbols-outlined text-xs text-outline cursor-pointer" data-icon="close">close</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/30 px-3 py-2 flex items-center gap-3">
+<span class="font-label text-[10px] text-on-surface uppercase">S.Cerevisiae</span>
+<span class="material-symbols-outlined text-xs text-outline cursor-pointer" data-icon="close">close</span>
+</div>
+<button class="bg-surface-container-high px-3 py-2 border border-dashed border-outline-variant/50 flex items-center gap-2 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-xs" data-icon="add">add</span>
+<span class="font-label text-[10px] text-outline uppercase">Append</span>
+</button>
+</div>
+</div>
+<!-- Technical Specification -->
+<div class="bg-on-surface text-surface p-8 space-y-6">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<h4 class="font-headline font-bold text-lg uppercase leading-none">Status Box</h4>
+<span class="font-label text-[8px] text-outline-variant uppercase">Runtime Diagnostics</span>
+</div>
+<span class="material-symbols-outlined text-tertiary-fixed-dim" data-icon="terminal">terminal</span>
+</div>
+<div class="space-y-4 font-label text-[10px] uppercase tracking-tighter">
+<div class="flex justify-between border-b border-outline-variant/20 pb-2">
+<span class="text-outline-variant">Batch_ID</span>
+<span class="text-surface-container-lowest">#SHM-2023-094</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/20 pb-2">
+<span class="text-outline-variant">Schema_Version</span>
+<span class="text-surface-container-lowest">v2.4.0_Stable</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/20 pb-2">
+<span class="text-outline-variant">Calculation_Engine</span>
+<span class="text-tertiary-fixed-dim">Neural_Net_Alpha</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/20 pb-2">
+<span class="text-outline-variant">Safety_Factor</span>
+<span class="text-surface-container-lowest">1.15</span>
+</div>
+</div>
+<div class="bg-surface-container-low/10 p-4 border-l-2 border-tertiary">
+<p class="font-body text-[10px] text-outline-variant lowercase italic leading-relaxed">
+                            System ready for data ingestion. Please ensure all quantitative measurements use metric standards (kg, g, l, ml).
+                        </p>
+</div>
+</div>
+<!-- Footer Metadata -->
+<div class="pt-12 flex flex-col items-end gap-2">
+<div class="text-[8px] font-label text-outline uppercase text-right">
+                        Last System Update: 2023.10.27_04:12_GMT
+                    </div>
+<div class="text-[8px] font-label text-outline uppercase text-right">
+                        Authorized User: ARCHITECT_01
+                    </div>
+</div>
+</div>
+</div>
+</main>
+<!-- Corner Decorative Elements (Asymmetry) -->
+<div class="fixed top-20 right-8 pointer-events-none opacity-20 hidden lg:block">
+<span class="font-label text-[8px] uppercase rotate-90 origin-right block">Structural_Layer_01</span>
+</div>
+<div class="fixed bottom-8 left-72 pointer-events-none opacity-20 hidden lg:block">
+<span class="font-label text-[8px] uppercase block">Ref_Grid_System_V1</span>
+</div>
+</body></html>

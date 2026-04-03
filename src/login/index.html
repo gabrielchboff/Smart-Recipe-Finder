@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Recipe Finder | Sign In</title>
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/scripts/login.js" type="module"></script>
+  </head>
+  <body>
+    <header class="header" id="main-header"></header>
+
+    <main class="main">
+      <div class="auth-page">
+        <h1 class="auth-page__title">Sign In</h1>
+        <p class="auth-page__subtitle">
+          Enter your credentials to access your saved recipes and preferences.
+        </p>
+
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input
+              type="email"
+              class="form-input"
+              id="loginEmail"
+              placeholder="you@example.com"
+              required
+            />
+            <p class="form-error" id="emailError"></p>
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input
+              type="password"
+              class="form-input"
+              id="loginPassword"
+              placeholder="Your password"
+              required
+            />
+            <p class="form-error" id="passwordError"></p>
+          </div>
+
+          <p class="form-error" id="loginError" style="margin-bottom: 16px"></p>
+
+          <button type="submit" class="btn btn--primary btn--block btn--lg">
+            Authenticate &rarr;
+          </button>
+        </form>
+
+        <p class="auth-page__footer">
+          New user? <a href="/signup/">Create an account</a>
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer" id="main-footer"></footer>
+    <nav class="bottom-nav" id="bottom-nav"></nav>
+  </body>
+</html>

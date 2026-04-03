@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Recipe Finder | Search Results</title>
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/scripts/search.js" type="module"></script>
+  </head>
+  <body>
+    <header class="header" id="main-header"></header>
+
+    <main class="main">
+      <div class="results-header">
+        <div>
+          <h1 class="results-header__title">Recipe Search Results</h1>
+          <p class="results-header__count" id="resultsCount">Searching...</p>
+        </div>
+        <div class="card__tags" id="ingredientTags"></div>
+      </div>
+
+      <div class="results-filters">
+        <select class="filter-select" id="sortSelect">
+          <option value="relevance">Sort: Relevance</option>
+          <option value="matchDesc">Most Matched</option>
+          <option value="matchAsc">Least Matched</option>
+          <option value="alpha">Alphabetical</option>
+        </select>
+      </div>
+
+      <div class="grid grid--3" id="resultsGrid"></div>
+    </main>
+
+    <footer class="footer" id="main-footer"></footer>
+    <nav class="bottom-nav" id="bottom-nav"></nav>
+  </body>
+</html>

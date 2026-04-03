@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RECIPE_SCHEMATIC - Recipe Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#585c63",
+              "on-secondary-container": "#4e5259",
+              "secondary-dim": "#4f535a",
+              "surface-dim": "#d1dce0",
+              "on-secondary-fixed": "#3b4046",
+              "on-primary-fixed": "#3f3f3f",
+              "primary-container": "#e2e2e2",
+              "inverse-primary": "#ffffff",
+              "on-surface": "#2b3437",
+              "error": "#9f403d",
+              "surface-variant": "#dbe4e7",
+              "secondary": "#5b5f67",
+              "outline-variant": "#abb3b7",
+              "primary-fixed": "#e2e2e2",
+              "on-tertiary-fixed-variant": "#345576",
+              "on-primary-fixed-variant": "#5b5b5b",
+              "on-error": "#fff7f6",
+              "error-dim": "#4e0309",
+              "secondary-fixed-dim": "#d1d4dd",
+              "on-surface-variant": "#586064",
+              "secondary-fixed": "#dfe2eb",
+              "primary-dim": "#525252",
+              "on-tertiary-fixed": "#143858",
+              "surface-bright": "#f8f9fa",
+              "secondary-container": "#dfe2eb",
+              "surface-container-highest": "#dbe4e7",
+              "surface-container-high": "#e3e9ec",
+              "tertiary-fixed-dim": "#a9c9f0",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#0c0f10",
+              "error-container": "#fe8983",
+              "inverse-on-surface": "#9b9d9e",
+              "on-tertiary-container": "#2a4b6c",
+              "background": "#f8f9fa",
+              "tertiary-dim": "#355577",
+              "surface-container": "#eaeff1",
+              "on-tertiary": "#f7f9ff",
+              "on-primary-container": "#525252",
+              "tertiary-container": "#b7d7ff",
+              "surface-container-low": "#f1f4f6",
+              "outline": "#737c7f",
+              "on-error-container": "#752121",
+              "on-background": "#2b3437",
+              "on-secondary": "#f7f9ff",
+              "on-primary": "#f8f8f8",
+              "primary-fixed-dim": "#d4d4d4",
+              "tertiary-fixed": "#b7d7ff",
+              "surface": "#f8f9fa",
+              "primary": "#5e5e5e",
+              "tertiary": "#416283",
+              "surface-tint": "#5e5e5e"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-x {
+            background-image: 
+                linear-gradient(to top right, transparent calc(50% - 1px), #abb3b7 50%, transparent calc(50% + 1px)),
+                linear-gradient(to bottom right, transparent calc(50% - 1px), #abb3b7 50%, transparent calc(50% + 1px));
+            background-size: 100% 100%;
+            opacity: 0.15;
+        }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #f1f4f6; }
+        ::-webkit-scrollbar-thumb { background: #737c7f; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black tracking-[0.2em] text-slate-800 dark:text-slate-100 font-headline uppercase">RECIPE_SCHEMATIC</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-slate-500 dark:text-slate-400 font-medium font-label text-xs uppercase hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-2 py-1" href="#">Archive</a>
+<a class="text-slate-900 dark:text-white font-bold border-b-2 border-slate-900 dark:border-white font-label text-xs uppercase px-2 py-1" href="#">Current_View</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium font-label text-xs uppercase hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-2 py-1" href="#">Labs</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<input class="bg-surface-container-low border-b border-outline text-[10px] font-label px-4 py-1 focus:outline-none focus:border-tertiary w-48 transition-all" placeholder="SEARCH_DATABASE" type="text"/>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-sm text-outline">search</span>
+</div>
+<button class="material-symbols-outlined text-slate-700 dark:text-slate-200">account_circle</button>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 flex flex-col pt-20 border-r border-slate-300/20 bg-slate-100 dark:bg-slate-950 z-40">
+<div class="px-6 mb-8">
+<h2 class="font-headline font-bold text-slate-800 dark:text-slate-100">SEC_01</h2>
+<p class="font-label text-[10px] text-outline uppercase tracking-tighter">PG_04 / CORE_NAVIGATION</p>
+</div>
+<nav class="flex-grow flex flex-col">
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 px-6 py-4 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Explore</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 px-6 py-4 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Saved</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 px-6 py-4 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Planner</span>
+</a>
+<a class="bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900 font-bold rounded-none flex items-center gap-4 px-6 py-4 translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Profile</span>
+</a>
+</nav>
+<div class="p-6">
+<button class="w-full bg-primary text-on-primary font-label text-[10px] font-bold py-3 uppercase tracking-widest flex items-center justify-center gap-2 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-sm">add</span>
+                NEW_ENTRY
+            </button>
+</div>
+<div class="mt-auto border-t border-slate-300/20">
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 px-6 py-4 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-sm">settings</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Settings</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 px-6 py-4 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-sm">help</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 pt-24 pb-12 px-12">
+<!-- Hero Section -->
+<section class="flex flex-col md:flex-row gap-12 mb-16 items-start">
+<div class="flex-1 w-full md:w-1/2">
+<div class="flex items-center gap-4 mb-2">
+<span class="bg-tertiary text-on-tertiary px-2 py-0.5 font-label text-[10px] font-bold">VERIFIED_DATA</span>
+<span class="text-outline font-label text-[10px] tracking-widest uppercase">ID: RS_092</span>
+</div>
+<h1 class="text-6xl font-headline font-black tracking-widest uppercase text-on-surface mb-6 leading-none">Recipe Detail</h1>
+<p class="text-on-surface-variant max-w-lg mb-8 text-body-md leading-relaxed">
+                    Technical documentation for the structural assembly of Mediterranean-inspired roasted components. Focus on thermal Maillard reactions and lipid integration.
+                </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-6 py-3 font-label text-xs font-bold uppercase tracking-widest">Execute_Build</button>
+<button class="bg-surface-container-highest text-on-surface px-6 py-3 font-label text-xs font-bold uppercase tracking-widest">Download_Spec</button>
+</div>
+</div>
+<div class="w-full md:w-1/2 aspect-video bg-surface-container-low relative flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 blueprint-x"></div>
+<img class="z-10 w-4/5 h-4/5 object-cover opacity-90 grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl" data-alt="top-down high-end editorial food photography of a structured healthy bowl with precise ingredient placement on a gray stone surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHjrec7oSijSf6N_vAWK6f4qgJfEABI9wp5bv19V7eFGnyKyWUCZ3zZ_UitEVZ-jtwU88f4RM3RBfCfrJ_8llCU0pP1VFr871xl-SX24XK5jfbXsRIhFhnpwuEZiyCZFfhSbQM8MHrepmooju2lmBZa8SaI2eyWr4ug61vRjsryS0NKoW6K84Yf2kfNY-9O4YdmtInLrVsnhLiKgS5V0KKBEbt0fUXAw4STgwUAi4KPuwDkMdfNNWdjygzt7ajnvw9ZJQSeJRQrA"/>
+<div class="absolute bottom-4 right-4 z-20 font-label text-[9px] text-outline uppercase tracking-[0.3em]">REF_FIG_01 // ASYMMETRIC_PLATING</div>
+</div>
+</section>
+<!-- Nutrition Bento Grid -->
+<section class="mb-16">
+<div class="flex justify-between items-end mb-6 border-b border-outline-variant/30 pb-2">
+<h3 class="font-headline font-bold text-lg uppercase tracking-widest">Nutrition_Data</h3>
+<span class="font-label text-[10px] text-outline">PER_100G_RATIO</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-0.5 bg-outline-variant/20">
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-between aspect-square">
+<span class="font-label text-[10px] text-tertiary font-bold uppercase tracking-tighter">01_Energy</span>
+<div>
+<div class="text-4xl font-headline font-black text-on-surface">452</div>
+<div class="font-label text-[10px] text-outline uppercase">Calories</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-between aspect-square">
+<span class="font-label text-[10px] text-tertiary font-bold uppercase tracking-tighter">02_Structure</span>
+<div>
+<div class="text-4xl font-headline font-black text-on-surface">24g</div>
+<div class="font-label text-[10px] text-outline uppercase">Protein</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-between aspect-square">
+<span class="font-label text-[10px] text-tertiary font-bold uppercase tracking-tighter">03_Fuel</span>
+<div>
+<div class="text-4xl font-headline font-black text-on-surface">38g</div>
+<div class="font-label text-[10px] text-outline uppercase">Carbs</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-between aspect-square">
+<span class="font-label text-[10px] text-tertiary font-bold uppercase tracking-tighter">04_Lipids</span>
+<div>
+<div class="text-4xl font-headline font-black text-on-surface">12g</div>
+<div class="font-label text-[10px] text-outline uppercase">Fat</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Content Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Ingredients Column -->
+<section class="lg:col-span-4">
+<div class="sticky top-24">
+<h3 class="font-headline font-bold text-lg uppercase tracking-widest mb-8 border-b border-outline-variant/30 pb-2">Materials_Manifest</h3>
+<ul class="space-y-6">
+<li class="flex justify-between items-start group">
+<div>
+<div class="font-label text-xs font-bold text-on-surface uppercase">A01_Base_Organic</div>
+<div class="text-sm text-on-surface-variant">Lacinato Kale, Massaged</div>
+</div>
+<span class="font-label text-[10px] text-outline">250G</span>
+</li>
+<li class="flex justify-between items-start">
+<div>
+<div class="font-label text-xs font-bold text-on-surface uppercase">A02_Protein_Core</div>
+<div class="text-sm text-on-surface-variant">Wild-Caught Salmon Fillet</div>
+</div>
+<span class="font-label text-[10px] text-outline">180G</span>
+</li>
+<li class="flex justify-between items-start">
+<div>
+<div class="font-label text-xs font-bold text-on-surface uppercase">B01_Emulsion</div>
+<div class="text-sm text-on-surface-variant">Cold-Pressed Extra Virgin Olive Oil</div>
+</div>
+<span class="font-label text-[10px] text-outline">30ML</span>
+</li>
+<li class="flex justify-between items-start">
+<div>
+<div class="font-label text-xs font-bold text-on-surface uppercase">B02_Acidity_Regulator</div>
+<div class="text-sm text-on-surface-variant">Organic Lemon Zest &amp; Juice</div>
+</div>
+<span class="font-label text-[10px] text-outline">1 UNIT</span>
+</li>
+<li class="flex justify-between items-start">
+<div>
+<div class="font-label text-xs font-bold text-on-surface uppercase">C01_Texture_Additive</div>
+<div class="text-sm text-on-surface-variant">Toasted Marcona Almonds</div>
+</div>
+<span class="font-label text-[10px] text-outline">45G</span>
+</li>
+</ul>
+<div class="mt-12 p-6 bg-surface-container-low">
+<div class="font-label text-[10px] text-outline uppercase mb-2">Technical_Note</div>
+<p class="text-[11px] leading-relaxed text-on-surface-variant italic">
+                            Ensure temperature of base materials is stabilized at 22°C before emulsion integration to prevent lipid separation.
+                        </p>
+</div>
+</div>
+</section>
+<!-- Preparation Column -->
+<section class="lg:col-span-8">
+<h3 class="font-headline font-bold text-lg uppercase tracking-widest mb-8 border-b border-outline-variant/30 pb-2">Operational_Steps</h3>
+<div class="space-y-16">
+<!-- Step 01 -->
+<div class="flex gap-8 group">
+<div class="flex flex-col items-center">
+<span class="font-headline font-black text-4xl text-outline/20 group-hover:text-tertiary transition-colors">01</span>
+<div class="w-px flex-grow bg-outline-variant/30 my-4"></div>
+</div>
+<div class="flex-grow pb-8">
+<span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 font-label text-[10px] font-bold uppercase mb-4 inline-block">Initial_Phase</span>
+<h4 class="font-headline font-bold text-on-surface uppercase mb-3">Material Preparation &amp; Surface Calibration</h4>
+<p class="text-on-surface-variant leading-relaxed mb-6">
+                                Thoroughly cleanse the Lacinato Kale using cold-water immersion. Manually compress the cellular walls with a pinch of sea salt to increase structural pliability and bitterness reduction. Set aside for 12 minutes of enzymatic breakdown.
+                            </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="border-l-2 border-tertiary pl-4 py-2">
+<span class="block font-label text-[9px] text-outline uppercase">Target_Duration</span>
+<span class="block font-label text-xs font-bold">12.0 MIN</span>
+</div>
+<div class="border-l-2 border-outline-variant pl-4 py-2">
+<span class="block font-label text-[9px] text-outline uppercase">Tooling_Required</span>
+<span class="block font-label text-xs font-bold">STAINLESS_BOWL_XL</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Step 02 -->
+<div class="flex gap-8 group">
+<div class="flex flex-col items-center">
+<span class="font-headline font-black text-4xl text-outline/20 group-hover:text-tertiary transition-colors">02</span>
+<div class="w-px flex-grow bg-outline-variant/30 my-4"></div>
+</div>
+<div class="flex-grow pb-8">
+<span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 font-label text-[10px] font-bold uppercase mb-4 inline-block">Integration</span>
+<h4 class="font-headline font-bold text-on-surface uppercase mb-3">Thermal Protein Processing</h4>
+<p class="text-on-surface-variant leading-relaxed mb-6">
+                                Apply convective heat to the protein core until internal sensors register 52°C. Ensure skin-side contact with the thermal surface is maintained at a constant 180°C to achieve optimal crispness while preserving cellular moisture within the tissue.
+                            </p>
+<div class="flex gap-4 items-center">
+<div class="w-full h-2 bg-surface-container-low relative">
+<div class="absolute top-0 left-0 h-full bg-tertiary w-3/4"></div>
+</div>
+<span class="font-label text-[10px] text-outline whitespace-nowrap">75%_COMPLETE</span>
+</div>
+</div>
+</div>
+<!-- Step 03 -->
+<div class="flex gap-8 group">
+<div class="flex flex-col items-center">
+<span class="font-headline font-black text-4xl text-outline/20 group-hover:text-tertiary transition-colors">03</span>
+<div class="w-px flex-grow bg-outline-variant/30 my-4 opacity-0"></div>
+</div>
+<div class="flex-grow">
+<span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 font-label text-[10px] font-bold uppercase mb-4 inline-block">Final_Assembly</span>
+<h4 class="font-headline font-bold text-on-surface uppercase mb-3">Architectural Component Layering</h4>
+<p class="text-on-surface-variant leading-relaxed mb-6">
+                                Position the base organic mass at the center of the viewport. Incrementally distribute the protein core at a 45-degree angle. Garnish with texture additives using a randomized distribution pattern to ensure geometric balance across the horizontal axis.
+                            </p>
+<div class="p-6 bg-tertiary/5 border border-tertiary/10">
+<div class="flex items-center gap-2 mb-2 text-tertiary">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span class="font-label text-[10px] font-bold uppercase">Visual_Verification</span>
+</div>
+<p class="text-[11px] text-on-tertiary-container">Final plating should mirror Figure 01 with a emphasis on negative space at the vessel periphery.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Contextual Footer Metadata -->
+<footer class="ml-64 px-12 py-8 border-t border-slate-300/10 bg-surface-container-low flex justify-between items-center">
+<div class="flex gap-8">
+<div>
+<span class="block font-label text-[9px] text-outline uppercase">Revision_No</span>
+<span class="block font-label text-xs font-bold text-on-surface">v2.4.09</span>
+</div>
+<div>
+<span class="block font-label text-[9px] text-outline uppercase">Checksum_ID</span>
+<span class="block font-label text-xs font-bold text-on-surface">88X-J21-A92</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-outline">
+<span class="font-label text-[10px] uppercase">Architectural Ledger System © 2024</span>
+</div>
+</footer>
+</body></html>

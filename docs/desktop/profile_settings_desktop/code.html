@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RECIPE_SCHEMATIC | PROFILE_PARAMETERS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#585c63",
+              "on-secondary-container": "#4e5259",
+              "secondary-dim": "#4f535a",
+              "surface-dim": "#d1dce0",
+              "on-secondary-fixed": "#3b4046",
+              "on-primary-fixed": "#3f3f3f",
+              "primary-container": "#e2e2e2",
+              "inverse-primary": "#ffffff",
+              "on-surface": "#2b3437",
+              "error": "#9f403d",
+              "surface-variant": "#dbe4e7",
+              "secondary": "#5b5f67",
+              "outline-variant": "#abb3b7",
+              "primary-fixed": "#e2e2e2",
+              "on-tertiary-fixed-variant": "#345576",
+              "on-primary-fixed-variant": "#5b5b5b",
+              "on-error": "#fff7f6",
+              "error-dim": "#4e0309",
+              "secondary-fixed-dim": "#d1d4dd",
+              "on-surface-variant": "#586064",
+              "secondary-fixed": "#dfe2eb",
+              "primary-dim": "#525252",
+              "on-tertiary-fixed": "#143858",
+              "surface-bright": "#f8f9fa",
+              "secondary-container": "#dfe2eb",
+              "surface-container-highest": "#dbe4e7",
+              "surface-container-high": "#e3e9ec",
+              "tertiary-fixed-dim": "#a9c9f0",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#0c0f10",
+              "error-container": "#fe8983",
+              "inverse-on-surface": "#9b9d9e",
+              "on-tertiary-container": "#2a4b6c",
+              "background": "#f8f9fa",
+              "tertiary-dim": "#355577",
+              "surface-container": "#eaeff1",
+              "on-tertiary": "#f7f9ff",
+              "on-primary-container": "#525252",
+              "tertiary-container": "#b7d7ff",
+              "surface-container-low": "#f1f4f6",
+              "outline": "#737c7f",
+              "on-error-container": "#752121",
+              "on-background": "#2b3437",
+              "on-secondary": "#f7f9ff",
+              "on-primary": "#f8f8f8",
+              "primary-fixed-dim": "#d4d4d4",
+              "tertiary-fixed": "#b7d7ff",
+              "surface": "#f8f9fa",
+              "primary": "#5e5e5e",
+              "tertiary": "#416283",
+              "surface-tint": "#5e5e5e"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-grid {
+            background-image: radial-gradient(circle, #abb3b7 1px, transparent 1px);
+            background-size: 24px 24px;
+            opacity: 0.1;
+        }
+        .rotated-label {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-tertiary-container">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800">
+<div class="text-xl font-black tracking-[0.2em] text-slate-800 dark:text-slate-100 font-headline uppercase">RECIPE_SCHEMATIC</div>
+<div class="flex items-center gap-6">
+<div class="relative flex items-center bg-slate-100 dark:bg-slate-800/50 px-4 py-2">
+<span class="material-symbols-outlined text-slate-500 text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-label uppercase tracking-widest px-2" placeholder="QUERY_DB..." type="text"/>
+</div>
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-200" data-icon="account_circle" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</div>
+</header>
+<!-- Sidebar Navigation -->
+<nav class="fixed left-0 top-0 h-full w-64 flex flex-col pt-20 border-r border-slate-300/20 bg-slate-100 dark:bg-slate-950 z-40">
+<div class="px-8 py-6 mb-8">
+<div class="font-headline font-bold text-slate-800 dark:text-slate-100 text-lg">SEC_01</div>
+<div class="font-label text-[10px] uppercase tracking-tighter text-slate-500">PG_04</div>
+</div>
+<div class="flex-1 flex flex-col">
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 px-6 py-4 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Explore</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 px-6 py-4 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Saved</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 px-6 py-4 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Planner</span>
+</a>
+<a class="bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900 font-bold rounded-none flex items-center gap-4 px-6 py-4 translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Profile</span>
+</a>
+</div>
+<div class="mt-auto border-t border-slate-200 dark:border-slate-800">
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 px-6 py-4 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Settings</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-4 px-6 py-4 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label uppercase tracking-tighter text-[10px]">Support</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen">
+<div class="p-12 max-w-6xl mx-auto">
+<!-- User Identity Header (Architectural Treatment) -->
+<section class="relative bg-surface-container-lowest p-12 flex flex-col md:flex-row gap-12 items-start overflow-hidden mb-12">
+<div class="absolute inset-0 blueprint-grid pointer-events-none"></div>
+<!-- Profile Image / Blueprint Avatar -->
+<div class="relative w-48 h-48 bg-surface-container-low flex items-center justify-center border border-outline-variant/30 group">
+<!-- Diagonal "X" placeholder logic from design system -->
+<div class="absolute inset-0 border border-outline-variant/20 flex items-center justify-center">
+<svg class="absolute w-full h-full opacity-10" preserveaspectratio="none" viewbox="0 0 100 100">
+<line stroke="currentColor" stroke-width="1" x1="0" x2="100" y1="0" y2="100"></line>
+<line stroke="currentColor" stroke-width="1" x1="100" x2="0" y1="0" y2="100"></line>
+</svg>
+</div>
+<img alt="Architect Profile" class="w-40 h-40 object-cover z-10 grayscale hover:grayscale-0 transition-all duration-500" data-alt="Modern minimalist portrait of a man in dark clothing, high contrast black and white architectural lighting style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiF9kJZtBFzPaMNhFppAli_X6Tdmy823jvSnmdsxIaUzGT3nnQLZ4-AN5xX8xngoHgJMKZ8Hmo7LmVG-4e4CqYd3ag9GqafnIF-84FUa457-Or5_21R4VrzSREh51Jo4juECNUttJKz5naX4CYidBUI6eT1YT7tB_0Lwocu9CcDnKqRqiyuQm2Hs3Jjy_kNeX-oETXJ3VgopduaBWj7SkCYPSkPPM8PUupG0-cQsFcA969Ml3xfMiMmfQnZ5_8YWE3w7twyv7-Sg"/>
+<div class="absolute top-2 left-2 font-label text-[8px] tracking-[0.2em] uppercase text-outline">IMG_REF: ARCH_01</div>
+</div>
+<div class="flex-1 space-y-4 pt-4">
+<div class="flex items-center gap-4">
+<span class="font-label text-xs uppercase tracking-widest text-tertiary">Entity_ID:</span>
+<h1 class="font-headline font-black text-6xl tracking-widest uppercase text-on-surface">ARCHITECT_01</h1>
+</div>
+<p class="font-label text-sm uppercase tracking-tighter text-outline-variant">System Role: Lead Culinary Engineer / schematics@recipe_arch.io</p>
+<div class="flex gap-4 pt-6">
+<button class="px-8 py-3 bg-primary text-on-primary font-label text-xs uppercase tracking-widest hover:opacity-90 transition-opacity">Edit Identity</button>
+<button class="px-8 py-3 bg-surface-container-highest text-on-surface font-label text-xs uppercase tracking-widest hover:bg-surface-container-high transition-colors">Export Ledger</button>
+</div>
+</div>
+</section>
+<!-- Bento Grid Settings -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Dietary Schematics Section -->
+<section class="space-y-8">
+<div class="border-b-2 border-on-surface pb-2 flex justify-between items-end">
+<h2 class="font-headline font-black text-2xl uppercase tracking-widest">DIETARY_SCHEMATICS</h2>
+<span class="font-label text-[10px] text-outline uppercase tracking-widest">Type: Preference_Matrix</span>
+</div>
+<div class="bg-surface-container-low p-8 space-y-4">
+<!-- Technical Checkbox Items -->
+<label class="flex items-center justify-between p-4 bg-white border-b border-outline-variant/10 cursor-pointer group">
+<span class="font-label text-xs uppercase tracking-widest font-bold">VEGAN_ALGORITHM</span>
+<div class="w-6 h-6 border-2 border-primary flex items-center justify-center bg-primary">
+<span class="material-symbols-outlined text-white text-sm" data-icon="check">check</span>
+</div>
+</label>
+<label class="flex items-center justify-between p-4 bg-white border-b border-outline-variant/10 cursor-pointer group">
+<span class="font-label text-xs uppercase tracking-widest font-bold">KETO_STRUCTURE</span>
+<div class="w-6 h-6 border-2 border-outline-variant group-hover:border-primary transition-colors"></div>
+</label>
+<label class="flex items-center justify-between p-4 bg-white border-b border-outline-variant/10 cursor-pointer group">
+<span class="font-label text-xs uppercase tracking-widest font-bold">PALEO_PRIMITIVE</span>
+<div class="w-6 h-6 border-2 border-outline-variant group-hover:border-primary transition-colors"></div>
+</label>
+<label class="flex items-center justify-between p-4 bg-white border-b border-outline-variant/10 cursor-pointer group">
+<span class="font-label text-xs uppercase tracking-widest font-bold">GLUTEN_FREE_VACUUM</span>
+<div class="w-6 h-6 border-2 border-primary flex items-center justify-center bg-primary">
+<span class="material-symbols-outlined text-white text-sm" data-icon="check">check</span>
+</div>
+</label>
+</div>
+</section>
+<!-- System Notifications Section -->
+<section class="space-y-8">
+<div class="border-b-2 border-on-surface pb-2 flex justify-between items-end">
+<h2 class="font-headline font-black text-2xl uppercase tracking-widest">SYSTEM_NOTIFICATIONS</h2>
+<span class="font-label text-[10px] text-outline uppercase tracking-widest">Type: Alert_Triggers</span>
+</div>
+<div class="bg-surface-container-low p-8 space-y-6">
+<!-- Technical Toggle Items -->
+<div class="flex items-center justify-between">
+<div class="space-y-1">
+<span class="font-label text-xs uppercase tracking-widest font-bold block">Recipe_Alerts</span>
+<span class="font-label text-[9px] uppercase tracking-tighter text-outline">Push notifications for new schematics</span>
+</div>
+<div class="w-12 h-6 bg-tertiary p-1 flex justify-end">
+<div class="w-4 h-4 bg-white"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="space-y-1">
+<span class="font-label text-xs uppercase tracking-widest font-bold block">Security_Comms</span>
+<span class="font-label text-[9px] uppercase tracking-tighter text-outline">Authentication and access logging</span>
+</div>
+<div class="w-12 h-6 bg-outline-variant p-1 flex justify-start">
+<div class="w-4 h-4 bg-white"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="space-y-1">
+<span class="font-label text-xs uppercase tracking-widest font-bold block">Network_Updates</span>
+<span class="font-label text-[9px] uppercase tracking-tighter text-outline">Weekly database architectural summaries</span>
+</div>
+<div class="w-12 h-6 bg-tertiary p-1 flex justify-end">
+<div class="w-4 h-4 bg-white"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Authentication Actions (Full Width Bottom) -->
+<section class="md:col-span-2 space-y-8 pt-12">
+<div class="border-b border-outline-variant pb-2 flex justify-between items-end">
+<h2 class="font-headline font-bold text-xl uppercase tracking-[0.2em] text-outline">AUTHENTICATION_PROTOCOLS</h2>
+<span class="font-label text-[10px] text-outline uppercase tracking-widest">Auth_Lvl: 01</span>
+</div>
+<div class="flex flex-col md:flex-row gap-8">
+<button class="flex-1 group flex items-center justify-between border border-outline-variant/30 p-6 hover:bg-surface-container-low transition-colors">
+<div class="text-left">
+<span class="font-label text-xs uppercase tracking-widest font-bold block mb-1">Change Passcode</span>
+<span class="font-label text-[9px] uppercase tracking-tighter text-outline">Update entity access credentials</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="lock_open">lock_open</span>
+</button>
+<button class="flex-1 group flex items-center justify-between border border-error/20 p-6 hover:bg-error/5 transition-colors">
+<div class="text-left">
+<span class="font-label text-xs uppercase tracking-widest font-bold block mb-1 text-error">Deactivate Entity</span>
+<span class="font-label text-[9px] uppercase tracking-tighter text-error/60">Purge profile from central database</span>
+</div>
+<span class="material-symbols-outlined text-error" data-icon="delete_forever" style="font-variation-settings: 'FILL' 1;">delete_forever</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Footer Meta Info -->
+<footer class="mt-24 border-t border-outline-variant/10 pt-8 flex justify-between items-center opacity-40">
+<div class="font-label text-[8px] uppercase tracking-widest">
+                    SESSION_ID: 882-XCA-009 // SYSTEM_STATUS: OPERATIONAL
+                </div>
+<div class="font-label text-[8px] uppercase tracking-widest">
+                    © 2024 RECIPE_SCHEMATIC. ARCHITECTURAL LEDGER V4.0.1
+                </div>
+</footer>
+</div>
+</main>
+<!-- Decorative Coordinates/Grid Intersections (Technical Artifacts) -->
+<div class="fixed top-4 right-4 pointer-events-none opacity-20 font-label text-[8px] tracking-[0.5em] uppercase">
+        X:1024_Y:768_Z:NULL
+    </div>
+<div class="fixed bottom-4 left-4 pointer-events-none opacity-20 font-label text-[8px] tracking-[0.5em] uppercase rotated-label">
+        SEC:01_REF:PARAMETERS
+    </div>
+</body></html>

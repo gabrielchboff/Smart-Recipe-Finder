@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RECIPE_SCHEMATIC - NEW_ENTRY</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#5e5e5e",
+              "on-tertiary-fixed": "#143858",
+              "on-primary-fixed-variant": "#5b5b5b",
+              "on-primary-fixed": "#3f3f3f",
+              "on-primary-container": "#525252",
+              "inverse-surface": "#0c0f10",
+              "error-container": "#fe8983",
+              "surface-bright": "#f8f9fa",
+              "primary-fixed": "#e2e2e2",
+              "on-surface-variant": "#586064",
+              "inverse-on-surface": "#9b9d9e",
+              "surface-container-low": "#f1f4f6",
+              "secondary-fixed": "#dfe2eb",
+              "outline-variant": "#abb3b7",
+              "surface-container": "#eaeff1",
+              "on-secondary-fixed": "#3b4046",
+              "on-primary": "#f8f8f8",
+              "on-error": "#fff7f6",
+              "on-secondary-container": "#4e5259",
+              "primary-fixed-dim": "#d4d4d4",
+              "outline": "#737c7f",
+              "surface-container-highest": "#dbe4e7",
+              "error-dim": "#4e0309",
+              "on-tertiary-container": "#2a4b6c",
+              "secondary-container": "#dfe2eb",
+              "on-tertiary": "#f7f9ff",
+              "on-tertiary-fixed-variant": "#345576",
+              "surface-tint": "#5e5e5e",
+              "error": "#9f403d",
+              "inverse-primary": "#ffffff",
+              "tertiary": "#416283",
+              "tertiary-dim": "#355577",
+              "on-secondary-fixed-variant": "#585c63",
+              "primary-dim": "#525252",
+              "secondary-fixed-dim": "#d1d4dd",
+              "on-error-container": "#752121",
+              "surface-dim": "#d1dce0",
+              "on-background": "#2b3437",
+              "surface-container-high": "#e3e9ec",
+              "surface-variant": "#dbe4e7",
+              "secondary-dim": "#4f535a",
+              "on-surface": "#2b3437",
+              "tertiary-fixed": "#b7d7ff",
+              "primary-container": "#e2e2e2",
+              "tertiary-fixed-dim": "#a9c9f0",
+              "on-secondary": "#f7f9ff",
+              "background": "#f8f9fa",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#f8f9fa",
+              "secondary": "#5b5f67",
+              "tertiary-container": "#b7d7ff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .blueprint-x {
+            position: relative;
+        }
+        .blueprint-x::before, .blueprint-x::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: transparent;
+            border: 1px solid rgba(171, 179, 183, 0.15);
+            pointer-events: none;
+        }
+        .blueprint-x::before {
+            background: linear-gradient(to top right, transparent calc(50% - 0.5px), rgba(171, 179, 183, 0.15), transparent calc(50% + 0.5px));
+        }
+        .blueprint-x::after {
+            background: linear-gradient(to bottom right, transparent calc(50% - 0.5px), rgba(171, 179, 183, 0.15), transparent calc(50% + 0.5px));
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen selection:bg-tertiary-container selection:text-on-tertiary-container">
+<!-- TopAppBar - Suppressed for transactional flow as per hierarchy rules, but keeping brand anchor -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl">
+<div class="text-xl font-black tracking-[0.2em] text-slate-800 dark:text-slate-100 font-headline uppercase">RECIPE_SCHEMATIC</div>
+<div class="font-label text-xs font-medium tracking-tighter text-outline">SEC_01 / PG_04</div>
+</header>
+<main class="pt-16 min-h-screen flex items-center justify-center p-6 md:p-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 w-full max-w-7xl gap-0 bg-surface-container-lowest overflow-hidden">
+<!-- Left Side: Schematic Visuals -->
+<div class="hidden lg:flex lg:col-span-5 flex-col bg-surface-container-low p-12 relative border-r border-outline-variant/10">
+<div class="mb-auto">
+<span class="font-label text-[10px] tracking-widest text-outline uppercase block mb-2">PROJECT: AUTHENTICATION_PROTOCOL</span>
+<h2 class="font-headline font-black text-4xl leading-tight tracking-widest uppercase text-on-surface">NEW_ENTRY<br/>REGISTRATION</h2>
+</div>
+<div class="blueprint-x w-full aspect-square border border-outline-variant/20 flex items-center justify-center mb-12">
+<div class="flex flex-col items-center gap-4">
+<span class="material-symbols-outlined text-4xl text-outline-variant/40" data-icon="architecture">architecture</span>
+<div class="font-label text-[10px] uppercase tracking-tighter text-outline-variant">TECHNICAL_PLACEHOLDER [A-02]</div>
+</div>
+</div>
+<div class="mt-auto grid grid-cols-2 gap-8">
+<div>
+<div class="font-label text-[10px] uppercase text-outline mb-1">SHEET:</div>
+<div class="font-label font-bold text-sm">A-02</div>
+</div>
+<div>
+<div class="font-label text-[10px] uppercase text-outline mb-1">SCALE:</div>
+<div class="font-label font-bold text-sm">1:1</div>
+</div>
+<div>
+<div class="font-label text-[10px] uppercase text-outline mb-1">COORDINATES:</div>
+<div class="font-label font-bold text-sm">40.7128° N, 74.0060° W</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Registration Form -->
+<div class="col-span-1 lg:col-span-7 p-8 md:p-16 lg:p-24 flex flex-col justify-center">
+<div class="max-w-md w-full mx-auto">
+<div class="mb-12">
+<div class="flex items-center gap-2 mb-4">
+<span class="h-[1px] w-8 bg-primary"></span>
+<span class="font-label text-[10px] uppercase tracking-widest text-primary">Input Technical Data</span>
+</div>
+<h1 class="font-headline font-bold text-2xl text-on-background tracking-tight">ENTITY_DATA_COLLECTION</h1>
+<p class="font-body text-on-surface-variant text-sm mt-2">Initialize your profile within the schematic ledger. Ensure all parameters match operational requirements.</p>
+</div>
+<form action="#" class="space-y-8" method="POST">
+<div class="space-y-6">
+<!-- Input: Full Name -->
+<div class="group">
+<label class="font-label text-[10px] uppercase tracking-tighter text-outline group-focus-within:text-tertiary transition-colors" for="full_name">PARAMETER: FULL_NAME</label>
+<input class="w-full bg-transparent border-0 border-b border-outline focus:ring-0 focus:border-tertiary px-0 py-2 font-body text-on-background placeholder:text-outline-variant/40 transition-all" id="full_name" name="full_name" placeholder="ARCHITECT NAME" type="text"/>
+</div>
+<!-- Input: Email Address -->
+<div class="group">
+<label class="font-label text-[10px] uppercase tracking-tighter text-outline group-focus-within:text-tertiary transition-colors" for="email">PARAMETER: EMAIL_ADDRESS</label>
+<input class="w-full bg-transparent border-0 border-b border-outline focus:ring-0 focus:border-tertiary px-0 py-2 font-body text-on-background placeholder:text-outline-variant/40 transition-all" id="email" name="email" placeholder="USER@SCHEMATIC.IO" type="email"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Input: Password -->
+<div class="group">
+<label class="font-label text-[10px] uppercase tracking-tighter text-outline group-focus-within:text-tertiary transition-colors" for="password">KEY: PASSWORD</label>
+<input class="w-full bg-transparent border-0 border-b border-outline focus:ring-0 focus:border-tertiary px-0 py-2 font-body text-on-background placeholder:text-outline-variant/40 transition-all" id="password" name="password" placeholder="••••••••" type="password"/>
+</div>
+<!-- Input: Confirm Password -->
+<div class="group">
+<label class="font-label text-[10px] uppercase tracking-tighter text-outline group-focus-within:text-tertiary transition-colors" for="confirm_password">VERIFY: PASSWORD</label>
+<input class="w-full bg-transparent border-0 border-b border-outline focus:ring-0 focus:border-tertiary px-0 py-2 font-body text-on-background placeholder:text-outline-variant/40 transition-all" id="confirm_password" name="confirm_password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<div class="pt-4 flex flex-col gap-6">
+<button class="w-full bg-primary text-on-primary py-4 px-8 rounded-none font-headline font-bold uppercase tracking-widest hover:bg-primary-dim active:opacity-80 transition-all flex items-center justify-between" type="submit">
+<span>EXECUTE_REGISTRATION</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<input class="w-4 h-4 rounded-none border-outline text-primary focus:ring-tertiary" id="terms" type="checkbox"/>
+<label class="font-label text-[10px] uppercase tracking-tighter text-on-surface-variant cursor-pointer" for="terms">AGREE_TO_PROTOCOLS</label>
+</div>
+<a class="font-label text-[10px] uppercase tracking-tighter text-tertiary hover:underline decoration-1 underline-offset-4" href="/login">EXISTING_ENTITY?_LOGIN</a>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Technical Markings -->
+<footer class="fixed bottom-0 left-0 w-full p-8 flex justify-between items-end pointer-events-none">
+<div class="font-label text-[9px] text-outline-variant/50 flex flex-col uppercase">
+<span>MOD_DATE: 2023-10-24</span>
+<span>REV_ID: 0.9.4-BETA</span>
+</div>
+<div class="h-16 w-16 border-r border-b border-outline-variant/20 relative">
+<span class="absolute right-0 bottom-0 p-1 font-label text-[8px] text-outline-variant/30 uppercase">ANCHOR_X01</span>
+</div>
+</footer>
+</body></html>

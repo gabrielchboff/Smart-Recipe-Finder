@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#585c63",
+              "on-secondary-container": "#4e5259",
+              "secondary-dim": "#4f535a",
+              "surface-dim": "#d1dce0",
+              "on-secondary-fixed": "#3b4046",
+              "on-primary-fixed": "#3f3f3f",
+              "primary-container": "#e2e2e2",
+              "inverse-primary": "#ffffff",
+              "on-surface": "#2b3437",
+              "error": "#9f403d",
+              "surface-variant": "#dbe4e7",
+              "secondary": "#5b5f67",
+              "outline-variant": "#abb3b7",
+              "primary-fixed": "#e2e2e2",
+              "on-tertiary-fixed-variant": "#345576",
+              "on-primary-fixed-variant": "#5b5b5b",
+              "on-error": "#fff7f6",
+              "error-dim": "#4e0309",
+              "secondary-fixed-dim": "#d1d4dd",
+              "on-surface-variant": "#586064",
+              "secondary-fixed": "#dfe2eb",
+              "primary-dim": "#525252",
+              "on-tertiary-fixed": "#143858",
+              "surface-bright": "#f8f9fa",
+              "secondary-container": "#dfe2eb",
+              "surface-container-highest": "#dbe4e7",
+              "surface-container-high": "#e3e9ec",
+              "tertiary-fixed-dim": "#a9c9f0",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#0c0f10",
+              "error-container": "#fe8983",
+              "inverse-on-surface": "#9b9d9e",
+              "on-tertiary-container": "#2a4b6c",
+              "background": "#f8f9fa",
+              "tertiary-dim": "#355577",
+              "surface-container": "#eaeff1",
+              "on-tertiary": "#f7f9ff",
+              "on-primary-container": "#525252",
+              "tertiary-container": "#b7d7ff",
+              "surface-container-low": "#f1f4f6",
+              "outline": "#737c7f",
+              "on-error-container": "#752121",
+              "on-background": "#2b3437",
+              "on-secondary": "#f7f9ff",
+              "on-primary": "#f8f8f8",
+              "primary-fixed-dim": "#d4d4d4",
+              "tertiary-fixed": "#b7d7ff",
+              "surface": "#f8f9fa",
+              "primary": "#5e5e5e",
+              "tertiary": "#416283",
+              "surface-tint": "#5e5e5e"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-grid {
+            background-image: 
+                linear-gradient(to right, rgba(171, 179, 183, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(171, 179, 183, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .crosshair::before, .crosshair::after {
+            content: '';
+            position: absolute;
+            background-color: #abb3b7;
+            opacity: 0.3;
+        }
+        .crosshair::before { width: 1px; height: 20px; left: 50%; top: -10px; }
+        .crosshair::after { height: 1px; width: 20px; top: 50%; left: -10px; }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background selection:bg-tertiary-container selection:text-on-tertiary-container min-h-screen relative overflow-hidden flex flex-col">
+<!-- Architectural Background Grid -->
+<div class="fixed inset-0 blueprint-grid pointer-events-none z-0"></div>
+<!-- Header: CULINARY_ARCH Branding -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-12 h-20 bg-white/50 backdrop-blur-md">
+<div class="flex items-center gap-4">
+<span class="font-headline font-black tracking-[0.3em] text-2xl text-primary uppercase">RECIPE_SCHEMATIC</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label text-[10px] text-outline uppercase tracking-widest">SYSTEM_VERSION_4.0</span>
+<span class="font-label text-[10px] text-outline uppercase tracking-widest">AUTH_LAYER_ACTIVE</span>
+</div>
+</header>
+<!-- Edge Metadata (Technical Artifacts) -->
+<!-- Top Left -->
+<div class="fixed top-24 left-12 z-10 pointer-events-none">
+<div class="font-label text-[10px] text-outline-variant flex flex-col gap-1">
+<span>PROJECT: CULINARY_ARCH</span>
+<span>SHEET: A-01_AUTH</span>
+<span>SEC_ID: ACCESS_01</span>
+</div>
+</div>
+<!-- Bottom Left -->
+<div class="fixed bottom-12 left-12 z-10 pointer-events-none">
+<div class="font-label text-[10px] text-outline-variant flex flex-col gap-1">
+<span>SCALE: 1:1</span>
+<span>UNITS: METRIC/IMP</span>
+<span>ESTABLISHED: 2024</span>
+</div>
+</div>
+<!-- Bottom Right -->
+<div class="fixed bottom-12 right-12 z-10 pointer-events-none text-right">
+<div class="font-label text-[10px] text-outline-variant flex flex-col gap-1">
+<span>LAT: 40.7128° N</span>
+<span>LNG: 74.0060° W</span>
+<span>HASH: 0x8F22A...7E</span>
+</div>
+</div>
+<!-- Main Content: SYSTEM_ENTRY_PROTOCOL -->
+<main class="flex-grow flex items-center justify-center p-6 relative z-10">
+<!-- Center Auth Card -->
+<div class="w-full max-w-md bg-surface-container-lowest border-0 shadow-2xl relative">
+<!-- Decorative Crosshairs at corners -->
+<div class="absolute -top-2 -left-2 w-4 h-4 crosshair"></div>
+<div class="absolute -top-2 -right-2 w-4 h-4 crosshair"></div>
+<div class="absolute -bottom-2 -left-2 w-4 h-4 crosshair"></div>
+<div class="absolute -bottom-2 -right-2 w-4 h-4 crosshair"></div>
+<!-- Card Header Section -->
+<div class="bg-surface-container-low p-8 border-b border-outline-variant/10">
+<div class="flex justify-between items-start mb-6">
+<h1 class="font-headline font-black text-3xl tracking-tighter uppercase leading-none text-on-surface">
+                        SYSTEM_ENTRY<br/>PROTOCOL
+                    </h1>
+<span class="font-label text-[10px] text-tertiary font-bold tracking-widest border border-tertiary px-2 py-1">SECURED</span>
+</div>
+<p class="font-body text-xs text-on-surface-variant leading-relaxed max-w-[280px]">
+                    Input authorized credentials to access the architectural recipe ledger and technical specifications.
+                </p>
+</div>
+<!-- Form Section -->
+<div class="p-10 flex flex-col gap-8">
+<!-- Username Field -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<label class="font-label text-[10px] font-bold tracking-widest text-outline uppercase" for="username">USERNAME/EMAIL</label>
+<span class="font-label text-[9px] text-outline-variant uppercase">01_ID_REQ</span>
+</div>
+<input class="w-full bg-transparent border-0 border-b border-outline focus:border-tertiary focus:ring-0 px-0 py-3 font-body text-sm placeholder:text-outline-variant" id="username" name="username" placeholder="ADMIN_USER_ID" type="text"/>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<label class="font-label text-[10px] font-bold tracking-widest text-outline uppercase" for="passcode">PASSCODE</label>
+<span class="font-label text-[9px] text-outline-variant uppercase">02_ENCR_REQ</span>
+</div>
+<input class="w-full bg-transparent border-0 border-b border-outline focus:border-tertiary focus:ring-0 px-0 py-3 font-body text-sm placeholder:text-outline-variant" id="passcode" name="passcode" placeholder="••••••••••••" type="password"/>
+</div>
+<!-- Action Button -->
+<div class="mt-4">
+<button class="w-full bg-primary text-on-primary font-headline font-bold text-sm tracking-[0.2em] py-5 transition-all hover:bg-on-surface flex items-center justify-center gap-3 group">
+                        AUTHENTICATE
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="flex justify-between mt-6">
+<a class="font-label text-[10px] text-outline-variant hover:text-tertiary uppercase tracking-tighter transition-colors" href="#">Recover Access</a>
+<a class="font-label text-[10px] text-outline-variant hover:text-tertiary uppercase tracking-tighter transition-colors" href="#">Request Credentials</a>
+</div>
+</div>
+</div>
+<!-- Blueprint Footer Overlay -->
+<div class="bg-surface-container-highest px-10 py-4 flex justify-between items-center border-t border-outline-variant/10">
+<div class="flex gap-4">
+<div class="flex flex-col">
+<span class="font-label text-[8px] text-outline-variant">ENCRYPTION</span>
+<span class="font-label text-[10px] font-bold text-on-surface-variant">AES_256</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label text-[8px] text-outline-variant">SERVER_STATUS</span>
+<span class="font-label text-[10px] font-bold text-on-surface-variant">NOMINAL</span>
+</div>
+</div>
+<div class="w-12 h-1 bg-outline-variant/20"></div>
+</div>
+</div>
+<!-- Decorative Blueprint Elements floating behind -->
+<div class="absolute inset-0 z-[-1] flex items-center justify-center opacity-5 select-none pointer-events-none">
+<div class="w-[800px] h-[800px] border border-outline-variant rounded-full flex items-center justify-center">
+<div class="w-[600px] h-[600px] border border-outline-variant rotate-45"></div>
+<div class="absolute w-full h-[1px] bg-outline-variant"></div>
+<div class="absolute h-full w-[1px] bg-outline-variant"></div>
+</div>
+</div>
+</main>
+<!-- Bottom Structural Bar -->
+<footer class="fixed bottom-0 left-0 w-full h-8 bg-on-surface flex items-center px-12 z-50">
+<div class="flex gap-12 w-full justify-between items-center overflow-hidden">
+<div class="flex gap-8">
+<span class="font-label text-[9px] text-surface-variant uppercase tracking-widest whitespace-nowrap">MODULE: CORE_SECURITY_V4</span>
+<span class="font-label text-[9px] text-surface-variant uppercase tracking-widest whitespace-nowrap">DB_LINK: ESTABLISHED</span>
+</div>
+<div class="hidden md:flex gap-8">
+<span class="font-label text-[9px] text-surface-variant/40 uppercase tracking-widest whitespace-nowrap">00101101 01100101 01100111 01101001 01110011 01110100 01100101 01110010</span>
+<span class="font-label text-[9px] text-surface-variant uppercase tracking-widest">PAGE_01_OF_01</span>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Recipe Finder | Recipe Detail</title>
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/scripts/recipe.js" type="module"></script>
+  </head>
+  <body>
+    <header class="header" id="main-header"></header>
+
+    <main class="main">
+      <div class="recipe-detail">
+        <a href="javascript:history.back()" class="recipe-detail__back">
+          &larr; Back to results
+        </a>
+        <div id="recipeContent">
+          <div class="skeleton skeleton--image" style="margin-bottom: 24px"></div>
+          <div class="skeleton skeleton--title" style="width: 70%"></div>
+          <div class="skeleton skeleton--text" style="width: 40%; margin-bottom: 24px"></div>
+          <div class="nutrition-grid">
+            <div class="skeleton" style="height: 80px"></div>
+            <div class="skeleton" style="height: 80px"></div>
+            <div class="skeleton" style="height: 80px"></div>
+            <div class="skeleton" style="height: 80px"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer" id="main-footer"></footer>
+    <nav class="bottom-nav" id="bottom-nav"></nav>
+  </body>
+</html>
