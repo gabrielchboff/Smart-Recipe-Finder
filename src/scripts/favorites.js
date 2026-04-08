@@ -1,4 +1,4 @@
-import { loadHeaderFooter, qs, alertMessage } from "./utils.mjs";
+import { loadHeaderFooter, qs, alertMessage, escapeHTML } from "./utils.mjs";
 import { getFavorites, removeFavorite, getCurrentUser } from "./StorageService.mjs";
 
 loadHeaderFooter();
@@ -32,25 +32,28 @@ function renderFavoriteCards() {
   }
 
   grid.innerHTML = favs
-    .map(
-      (r) => `
-    <div class="card card--recipe" data-id="${r.id}">
-      <button class="card__favorite-btn saved" data-remove-id="${r.id}" aria-label="Remove from favorites">
+    .map((r) => {
+      const safeTitle = escapeHTML(r.title);
+      const safeImage = escapeHTML(r.image);
+      const safeId = Number(r.id) || 0;
+
+      return `
+    <div class="card card--recipe" data-id="${safeId}">
+      <button class="card__favorite-btn saved" data-remove-id="${safeId}" aria-label="Remove from favorites">
         &#9829;
       </button>
-      <img class="card__image" src="${r.image}" alt="${r.title}" loading="lazy" />
+      <img class="card__image" src="${safeImage}" alt="${safeTitle}" loading="lazy" />
       <div class="card__body">
-        <h3 class="card__title">${r.title}</h3>
+        <h3 class="card__title">${safeTitle}</h3>
         <div class="card__meta">
-          ${r.readyInMinutes ? `<span>${r.readyInMinutes} min</span>` : ""}
+          ${r.readyInMinutes ? `<span>${Number(r.readyInMinutes)} min</span>` : ""}
         </div>
       </div>
-    </div>`,
-    )
+    </div>`;
+    })
     .join("");
 }
 
-// Init
 renderFavoriteCards();
 
 qs("#favoritesGrid")?.addEventListener("click", (e) => {
@@ -66,6 +69,7 @@ qs("#favoritesGrid")?.addEventListener("click", (e) => {
 
   const card = e.target.closest(".card--recipe");
   if (card) {
-    window.location.href = `/recipe/?id=${card.dataset.id}`;
+    const id = Number(card.dataset.id);
+    if (id > 0) window.location.href = `/recipe/?id=${id}`;
   }
 });

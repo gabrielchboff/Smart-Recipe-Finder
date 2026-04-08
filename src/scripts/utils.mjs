@@ -5,7 +5,11 @@ export function qs(selector, parent = document) {
 
 // retrieve data from localstorage
 export function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
+  try {
+    return JSON.parse(localStorage.getItem(key));
+  } catch {
+    return null;
+  }
 }
 
 // save data to local storage
@@ -16,6 +20,66 @@ export function setLocalStorage(key, data) {
 // get URL query parameter
 export function getParam(param) {
   return new URLSearchParams(window.location.search).get(param);
+}
+
+// escape HTML to prevent XSS — use for all untrusted text content
+export function escapeHTML(str) {
+  if (str == null) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+// sanitize HTML — allows safe tags, strips dangerous ones (scripts, events)
+export function sanitizeHTML(html) {
+  if (!html) return "";
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  const ALLOWED_TAGS = new Set([
+    "b", "i", "em", "strong", "p", "br", "ul", "ol", "li", "span", "a", "h1", "h2", "h3", "h4",
+  ]);
+  function clean(node) {
+    for (const child of [...node.childNodes]) {
+      if (child.nodeType === 1) {
+        const tag = child.tagName.toLowerCase();
+        if (!ALLOWED_TAGS.has(tag)) {
+          child.replaceWith(...child.childNodes);
+          continue;
+        }
+        // strip all attributes except href on <a>
+        for (const attr of [...child.attributes]) {
+          if (tag === "a" && attr.name === "href") {
+            // only allow http/https URLs
+            if (!/^https?:\/\//i.test(attr.value)) {
+              child.removeAttribute("href");
+            }
+          } else {
+            child.removeAttribute(attr.name);
+          }
+        }
+        // force links to open safely
+        if (tag === "a") {
+          child.setAttribute("rel", "noopener noreferrer");
+          child.setAttribute("target", "_blank");
+        }
+        clean(child);
+      }
+    }
+  }
+  clean(doc.body);
+  return doc.body.innerHTML;
+}
+
+// hash a string using SHA-256 (Web Crypto API)
+export async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(hashBuffer))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
 }
 
 // render a list of items using a template function

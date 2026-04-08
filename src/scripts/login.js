@@ -5,7 +5,7 @@ loadHeaderFooter();
 
 const form = qs("#loginForm");
 
-form?.addEventListener("submit", (e) => {
+form?.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const email = qs("#loginEmail").value.trim();
@@ -38,7 +38,7 @@ form?.addEventListener("submit", (e) => {
 
   if (!valid) return;
 
-  const result = loginUser({ email, password });
+  const result = await loginUser({ email, password });
 
   if (result.success) {
     alertMessage("Welcome back!");

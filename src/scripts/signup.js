@@ -5,7 +5,7 @@ loadHeaderFooter();
 
 const form = qs("#signupForm");
 
-form?.addEventListener("submit", (e) => {
+form?.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const fullName = qs("#signupName").value.trim();
@@ -47,8 +47,12 @@ form?.addEventListener("submit", (e) => {
     qs("#passwordError").textContent = "Password is required.";
     qs("#signupPassword").classList.add("form-input--error");
     valid = false;
-  } else if (password.length < 6) {
-    qs("#passwordError").textContent = "Password must be at least 6 characters.";
+  } else if (password.length < 8) {
+    qs("#passwordError").textContent = "Password must be at least 8 characters.";
+    qs("#signupPassword").classList.add("form-input--error");
+    valid = false;
+  } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
+    qs("#passwordError").textContent = "Password needs uppercase, lowercase, and a number.";
     qs("#signupPassword").classList.add("form-input--error");
     valid = false;
   }
@@ -61,7 +65,7 @@ form?.addEventListener("submit", (e) => {
 
   if (!valid) return;
 
-  const result = registerUser({ fullName, email, password });
+  const result = await registerUser({ fullName, email, password });
 
   if (result.success) {
     alertMessage("Account created!");

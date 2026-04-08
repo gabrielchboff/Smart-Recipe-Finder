@@ -600,10 +600,17 @@ h1, h2, h3, h4 {
 }
 
 .results-filters {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
   margin-bottom: 24px;
+}
+
+@media (min-width: 600px) {
+  .results-filters {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .filter-select {
@@ -613,6 +620,7 @@ h1, h2, h3, h4 {
   background: var(--color-surface);
   font-size: 14px;
   cursor: pointer;
+  min-width: 0;
 }
 
 .filter-select:focus {

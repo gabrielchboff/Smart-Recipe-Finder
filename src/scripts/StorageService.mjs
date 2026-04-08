@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, hashPassword } from "./utils.mjs";
 
 const KEYS = {
   USER: "srf_user",
@@ -29,42 +29,43 @@ export function clearCurrentUser() {
   localStorage.removeItem(KEYS.USER);
 }
 
-// Register a new user
-export function registerUser({ fullName, email, password }) {
+// Register a new user (async — password is hashed)
+export async function registerUser({ fullName, email, password }) {
   const users = getUsers();
   if (users.find((u) => u.email === email)) {
     return { success: false, error: "An account with this email already exists." };
   }
 
+  const hashedPassword = await hashPassword(password);
+
   const user = {
     id: Date.now().toString(),
     fullName,
     email,
-    password, // plain text — localStorage-only simulation
+    password: hashedPassword,
     createdAt: new Date().toISOString(),
   };
 
   users.push(user);
   saveUsers(users);
 
-  const safeUser = { ...user };
-  delete safeUser.password;
+  const safeUser = { id: user.id, fullName: user.fullName, email: user.email };
   setCurrentUser(safeUser);
 
   return { success: true, user: safeUser };
 }
 
-// Log in an existing user
-export function loginUser({ email, password }) {
+// Log in an existing user (async — compares hashed passwords)
+export async function loginUser({ email, password }) {
   const users = getUsers();
-  const user = users.find((u) => u.email === email && u.password === password);
+  const hashedPassword = await hashPassword(password);
+  const user = users.find((u) => u.email === email && u.password === hashedPassword);
 
   if (!user) {
     return { success: false, error: "Invalid email or password." };
   }
 
-  const safeUser = { ...user };
-  delete safeUser.password;
+  const safeUser = { id: user.id, fullName: user.fullName, email: user.email };
   setCurrentUser(safeUser);
 
   return { success: true, user: safeUser };

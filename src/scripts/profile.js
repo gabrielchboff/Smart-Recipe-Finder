@@ -1,4 +1,4 @@
-import { loadHeaderFooter, qs, alertMessage, renderWithTemplate } from "./utils.mjs";
+import { loadHeaderFooter, qs, alertMessage, renderWithTemplate, escapeHTML } from "./utils.mjs";
 import {
   getCurrentUser,
   logoutUser,
@@ -25,19 +25,23 @@ function renderProfile() {
   }
 
   const prefs = getPreferences();
-  const initials = user.fullName
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .toUpperCase()
-    .slice(0, 2);
+  const safeName = escapeHTML(user.fullName);
+  const safeEmail = escapeHTML(user.email);
+  const initials = escapeHTML(
+    user.fullName
+      .split(" ")
+      .map((n) => n[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 2),
+  );
 
   renderWithTemplate(
     `<div class="profile-header">
         <div class="profile-avatar">${initials}</div>
         <div class="profile-info">
-          <h1 class="profile-info__name">${user.fullName}</h1>
-          <p class="profile-info__email">${user.email}</p>
+          <h1 class="profile-info__name">${safeName}</h1>
+          <p class="profile-info__email">${safeEmail}</p>
         </div>
       </div>
 
@@ -101,7 +105,6 @@ function renderProfile() {
     container,
   );
 
-  // Dietary preference toggles
   document.querySelectorAll("[data-pref]").forEach((toggle) => {
     toggle.addEventListener("change", () => {
       const currentPrefs = getPreferences();
@@ -111,14 +114,12 @@ function renderProfile() {
     });
   });
 
-  // Logout
   qs("#logoutBtn")?.addEventListener("click", () => {
     logoutUser();
     alertMessage("Signed out");
     window.location.href = "/";
   });
 
-  // Change password
   qs("#changePasswordBtn")?.addEventListener("click", () => {
     alertMessage("Password change coming soon");
   });

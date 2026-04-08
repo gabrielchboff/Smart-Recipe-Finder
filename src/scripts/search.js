@@ -1,30 +1,47 @@
-import { loadHeaderFooter, qs, getParam, alertMessage } from "./utils.mjs";
-import { searchByIngredients } from "./ApiService.mjs";
-import { isFavorite, saveFavorite, removeFavorite, getCurrentUser } from "./StorageService.mjs";
+import { loadHeaderFooter, qs, getParam, alertMessage, escapeHTML } from "./utils.mjs";
+import { searchByIngredients, searchRecipes } from "./ApiService.mjs";
+import { isFavorite, saveFavorite, removeFavorite, getCurrentUser, getPreferences } from "./StorageService.mjs";
 
 loadHeaderFooter();
 
 let results = [];
+let activeFilters = { cuisine: "", diet: "", type: "" };
 
 function getMatchPercent(recipe) {
-  const total = recipe.usedIngredientCount + recipe.missedIngredientCount;
+  const used = recipe.usedIngredientCount || 0;
+  const missed = recipe.missedIngredientCount || 0;
+  const total = used + missed;
   if (total === 0) return 0;
-  return Math.round((recipe.usedIngredientCount / total) * 100);
+  return Math.round((used / total) * 100);
 }
 
-function getFilteredResults() {
+function hasActiveFilters() {
+  return activeFilters.cuisine || activeFilters.diet || activeFilters.type;
+}
+
+function getSortedResults() {
   const sortValue = qs("#sortSelect")?.value || "relevance";
-  let filtered = [...results];
+  let sorted = [...results];
 
   if (sortValue === "matchDesc") {
-    filtered.sort((a, b) => b.usedIngredientCount - a.usedIngredientCount);
+    sorted.sort((a, b) => (b.usedIngredientCount || 0) - (a.usedIngredientCount || 0));
   } else if (sortValue === "matchAsc") {
-    filtered.sort((a, b) => a.usedIngredientCount - b.usedIngredientCount);
+    sorted.sort((a, b) => (a.usedIngredientCount || 0) - (b.usedIngredientCount || 0));
   } else if (sortValue === "alpha") {
-    filtered.sort((a, b) => a.title.localeCompare(b.title));
+    sorted.sort((a, b) => a.title.localeCompare(b.title));
+  } else if (sortValue === "timeAsc") {
+    sorted.sort((a, b) => (a.readyInMinutes || 999) - (b.readyInMinutes || 999));
+  } else if (sortValue === "caloriesAsc") {
+    sorted.sort((a, b) => getCalories(a) - getCalories(b));
   }
 
-  return filtered;
+  return sorted;
+}
+
+function getCalories(recipe) {
+  const nutrients = recipe.nutrition?.nutrients || [];
+  const cal = nutrients.find((n) => n.name === "Calories");
+  return cal ? cal.amount : 9999;
 }
 
 function renderResults() {
@@ -32,13 +49,13 @@ function renderResults() {
   const countEl = qs("#resultsCount");
   if (!grid) return;
 
-  const filtered = getFilteredResults();
+  const sorted = getSortedResults();
 
   if (countEl) {
-    countEl.textContent = `${filtered.length} recipe${filtered.length !== 1 ? "s" : ""} found`;
+    countEl.textContent = `${sorted.length} recipe${sorted.length !== 1 ? "s" : ""} found`;
   }
 
-  if (filtered.length === 0) {
+  if (sorted.length === 0) {
     grid.innerHTML = `
       <div class="error-message" style="grid-column: 1/-1;">
         No recipes found. Try different ingredients or fewer filters.
@@ -46,30 +63,37 @@ function renderResults() {
     return;
   }
 
-  grid.innerHTML = filtered
+  grid.innerHTML = sorted
     .map((r) => {
       const match = getMatchPercent(r);
       const missed = r.missedIngredients?.map((i) => i.name).slice(0, 3) || [];
+      const hasMatchData = r.usedIngredientCount !== undefined;
+      const calories = getCalories(r);
+      const hasCalories = calories < 9999;
+      const safeTitle = escapeHTML(r.title);
+      const safeImage = escapeHTML(r.image);
+      const safeId = Number(r.id) || 0;
 
       return `
-      <div class="card card--recipe" data-id="${r.id}">
-        <button class="card__favorite-btn ${isFavorite(r.id) ? "saved" : ""}" data-fav-id="${r.id}" aria-label="Save recipe">
+      <div class="card card--recipe" data-id="${safeId}">
+        <button class="card__favorite-btn ${isFavorite(r.id) ? "saved" : ""}" data-fav-id="${safeId}" aria-label="Save recipe">
           ${isFavorite(r.id) ? "&#9829;" : "&#9825;"}
         </button>
-        <img class="card__image" src="${r.image}" alt="${r.title}" loading="lazy" />
+        <img class="card__image" src="${safeImage}" alt="${safeTitle}" loading="lazy" />
         <div class="card__body">
           <div style="display:flex; justify-content:space-between; align-items:start; gap:8px;">
-            <h3 class="card__title">${r.title}</h3>
-            <span class="match-badge">${match}%</span>
+            <h3 class="card__title">${safeTitle}</h3>
+            ${hasMatchData ? `<span class="match-badge">${match}%</span>` : ""}
           </div>
           <div class="card__meta">
-            <span>${r.usedIngredientCount} used</span>
-            <span>${r.missedIngredientCount} missing</span>
+            ${hasMatchData ? `<span>${Number(r.usedIngredientCount) || 0} used</span><span>${Number(r.missedIngredientCount) || 0} missing</span>` : ""}
+            ${r.readyInMinutes ? `<span>&#9201; ${Number(r.readyInMinutes)} min</span>` : ""}
+            ${hasCalories ? `<span>&#128293; ${Math.round(calories)} cal</span>` : ""}
           </div>
           ${
             missed.length > 0
               ? `<div class="card__tags" style="margin-top:8px;">
-                  ${missed.map((m) => `<span class="tag">${m}</span>`).join("")}
+                  ${missed.map((m) => `<span class="tag">${escapeHTML(m)}</span>`).join("")}
                 </div>`
               : ""
           }
@@ -79,20 +103,7 @@ function renderResults() {
     .join("");
 }
 
-// ===== Init =====
-async function init() {
-  const ingredientsParam = getParam("ingredients") || "";
-  const ingredientsList = ingredientsParam.split(",").filter(Boolean);
-
-  // Show ingredient tags
-  const tagsEl = qs("#ingredientTags");
-  if (tagsEl) {
-    tagsEl.innerHTML = ingredientsList
-      .map((i) => `<span class="tag tag--primary">${i}</span>`)
-      .join("");
-  }
-
-  // Skeleton loading
+function showSkeleton() {
   const grid = qs("#resultsGrid");
   grid.innerHTML = Array(6)
     .fill(
@@ -105,25 +116,94 @@ async function init() {
       </div>`,
     )
     .join("");
+}
+
+async function fetchResults(ingredientsList) {
+  showSkeleton();
+
+  const countEl = qs("#resultsCount");
+  if (countEl) countEl.textContent = "Searching...";
+
+  try {
+    if (hasActiveFilters()) {
+      const data = await searchRecipes({
+        includeIngredients: ingredientsList.join(","),
+        cuisine: activeFilters.cuisine,
+        diet: activeFilters.diet,
+        type: activeFilters.type,
+        number: 18,
+      });
+      results = data.results || [];
+    } else {
+      results = await searchByIngredients(ingredientsList, 18);
+    }
+    renderResults();
+  } catch (err) {
+    const grid = qs("#resultsGrid");
+    grid.innerHTML = `<div class="error-message" style="grid-column:1/-1;">Failed to load recipes. Please try again later.</div>`;
+  }
+}
+
+function applyUserPreferences() {
+  const prefs = getPreferences();
+  const dietSelect = qs("#dietFilter");
+  if (!dietSelect) return;
+
+  if (!dietSelect.value) {
+    if (prefs.vegan) dietSelect.value = "vegan";
+    else if (prefs.keto) dietSelect.value = "ketogenic";
+    else if (prefs.glutenFree) dietSelect.value = "gluten free";
+    else if (prefs.paleo) dietSelect.value = "paleo";
+  }
+
+  activeFilters.diet = dietSelect.value;
+}
+
+// ===== Init =====
+async function init() {
+  const ingredientsParam = getParam("ingredients") || "";
+  const ingredientsList = ingredientsParam
+    .split(",")
+    .filter(Boolean)
+    .map((i) => i.replace(/[<>"'&]/g, "").trim())
+    .filter(Boolean);
+
+  // Show ingredient tags (escaped)
+  const tagsEl = qs("#ingredientTags");
+  if (tagsEl) {
+    tagsEl.innerHTML = ingredientsList
+      .map((i) => `<span class="tag tag--primary">${escapeHTML(i)}</span>`)
+      .join("");
+  }
 
   if (ingredientsList.length === 0) {
+    const grid = qs("#resultsGrid");
     grid.innerHTML = `<div class="error-message" style="grid-column:1/-1;">No ingredients provided.</div>`;
     return;
   }
 
-  try {
-    results = await searchByIngredients(ingredientsList, 18);
-    renderResults();
-  } catch (err) {
-    grid.innerHTML = `<div class="error-message" style="grid-column:1/-1;">Failed to load recipes. Please try again later.</div>`;
+  if (getCurrentUser()) {
+    applyUserPreferences();
   }
 
-  // Sort change
+  await fetchResults(ingredientsList);
+
   qs("#sortSelect")?.addEventListener("change", () => {
     renderResults();
   });
 
-  // Card clicks (event delegation)
+  const filterHandler = () => {
+    activeFilters.cuisine = qs("#cuisineFilter")?.value || "";
+    activeFilters.diet = qs("#dietFilter")?.value || "";
+    activeFilters.type = qs("#mealTypeFilter")?.value || "";
+    fetchResults(ingredientsList);
+  };
+
+  qs("#cuisineFilter")?.addEventListener("change", filterHandler);
+  qs("#dietFilter")?.addEventListener("change", filterHandler);
+  qs("#mealTypeFilter")?.addEventListener("change", filterHandler);
+
+  const grid = qs("#resultsGrid");
   grid.addEventListener("click", (e) => {
     const favBtn = e.target.closest(".card__favorite-btn");
     if (favBtn) {
@@ -149,7 +229,8 @@ async function init() {
 
     const card = e.target.closest(".card--recipe");
     if (card) {
-      window.location.href = `/recipe/?id=${card.dataset.id}`;
+      const id = Number(card.dataset.id);
+      if (id > 0) window.location.href = `/recipe/?id=${id}`;
     }
   });
 }

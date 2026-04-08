@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://img.spoonacular.com https://spoonacular.com data:; connect-src 'self' https://api.spoonacular.com https://api.edamam.com;" />
     <title>Smart Recipe Finder | Search Results</title>
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -11,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
     <script src="/scripts/search.js" type="module"></script>
   </head>
   <body>
@@ -27,11 +30,59 @@
       </div>
 
       <div class="results-filters">
+        <select class="filter-select" id="cuisineFilter">
+          <option value="">All Cuisines</option>
+          <option value="African">African</option>
+          <option value="American">American</option>
+          <option value="British">British</option>
+          <option value="Caribbean">Caribbean</option>
+          <option value="Chinese">Chinese</option>
+          <option value="French">French</option>
+          <option value="German">German</option>
+          <option value="Greek">Greek</option>
+          <option value="Indian">Indian</option>
+          <option value="Italian">Italian</option>
+          <option value="Japanese">Japanese</option>
+          <option value="Korean">Korean</option>
+          <option value="Mediterranean">Mediterranean</option>
+          <option value="Mexican">Mexican</option>
+          <option value="Middle Eastern">Middle Eastern</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Thai">Thai</option>
+          <option value="Vietnamese">Vietnamese</option>
+        </select>
+
+        <select class="filter-select" id="dietFilter">
+          <option value="">All Diets</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="vegan">Vegan</option>
+          <option value="gluten free">Gluten Free</option>
+          <option value="ketogenic">Ketogenic</option>
+          <option value="paleo">Paleo</option>
+          <option value="pescetarian">Pescetarian</option>
+          <option value="whole30">Whole30</option>
+        </select>
+
+        <select class="filter-select" id="mealTypeFilter">
+          <option value="">All Meal Types</option>
+          <option value="main course">Main Course</option>
+          <option value="side dish">Side Dish</option>
+          <option value="appetizer">Appetizer</option>
+          <option value="salad">Salad</option>
+          <option value="breakfast">Breakfast</option>
+          <option value="soup">Soup</option>
+          <option value="dessert">Dessert</option>
+          <option value="snack">Snack</option>
+          <option value="beverage">Beverage</option>
+        </select>
+
         <select class="filter-select" id="sortSelect">
           <option value="relevance">Sort: Relevance</option>
           <option value="matchDesc">Most Matched</option>
           <option value="matchAsc">Least Matched</option>
           <option value="alpha">Alphabetical</option>
+          <option value="timeAsc">Quickest First</option>
+          <option value="caloriesAsc">Lowest Calories</option>
         </select>
       </div>
 

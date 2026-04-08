@@ -1,4 +1,4 @@
-import { loadHeaderFooter, qs, alertMessage } from "./utils.mjs";
+import { loadHeaderFooter, qs, alertMessage, escapeHTML } from "./utils.mjs";
 import { getRandomRecipes } from "./ApiService.mjs";
 import { isFavorite, saveFavorite, removeFavorite, getCurrentUser } from "./StorageService.mjs";
 
@@ -15,8 +15,8 @@ function renderChips() {
     .map(
       (ing, i) => `
     <span class="chip">
-      ${ing}
-      <button class="chip__remove" data-index="${i}" aria-label="Remove ${ing}">&times;</button>
+      ${escapeHTML(ing)}
+      <button class="chip__remove" data-index="${i}" aria-label="Remove ${escapeHTML(ing)}">&times;</button>
     </span>`,
     )
     .join("");
@@ -31,8 +31,8 @@ function renderChips() {
 }
 
 function addIngredient(value) {
-  const trimmed = value.trim().toLowerCase();
-  if (trimmed && !ingredients.includes(trimmed)) {
+  const trimmed = value.trim().toLowerCase().replace(/[<>"'&]/g, "");
+  if (trimmed && !ingredients.includes(trimmed) && trimmed.length <= 50) {
     ingredients.push(trimmed);
     renderChips();
   }
@@ -80,7 +80,6 @@ async function loadTrending() {
   const grid = qs("#trendingGrid");
   if (!grid) return;
 
-  // Skeleton loading
   grid.innerHTML = Array(6)
     .fill(
       `<div class="card">
@@ -105,17 +104,22 @@ async function loadTrending() {
 function renderTrendingCards(grid, recipes) {
   grid.innerHTML = recipes
     .map(
-      (r) => `
-    <div class="card card--recipe" data-id="${r.id}">
-      <button class="card__favorite-btn ${isFavorite(r.id) ? "saved" : ""}" data-fav-id="${r.id}" aria-label="Save recipe">
+      (r) => {
+        const safeTitle = escapeHTML(r.title);
+        const safeImage = escapeHTML(r.image);
+        const safeId = Number(r.id) || 0;
+
+        return `
+    <div class="card card--recipe" data-id="${safeId}">
+      <button class="card__favorite-btn ${isFavorite(r.id) ? "saved" : ""}" data-fav-id="${safeId}" aria-label="Save recipe">
         ${isFavorite(r.id) ? "&#9829;" : "&#9825;"}
       </button>
-      <img class="card__image" src="${r.image}" alt="${r.title}" loading="lazy" />
+      <img class="card__image" src="${safeImage}" alt="${safeTitle}" loading="lazy" />
       <div class="card__body">
-        <h3 class="card__title">${r.title}</h3>
+        <h3 class="card__title">${safeTitle}</h3>
         <div class="card__meta">
-          ${r.readyInMinutes ? `<span>${r.readyInMinutes} min</span>` : ""}
-          ${r.servings ? `<span>${r.servings} servings</span>` : ""}
+          ${r.readyInMinutes ? `<span>${Number(r.readyInMinutes)} min</span>` : ""}
+          ${r.servings ? `<span>${Number(r.servings)} servings</span>` : ""}
         </div>
         <div class="card__tags">
           ${r.vegetarian ? '<span class="tag tag--success">Vegetarian</span>' : ""}
@@ -123,11 +127,11 @@ function renderTrendingCards(grid, recipes) {
           ${r.glutenFree ? '<span class="tag">Gluten-Free</span>' : ""}
         </div>
       </div>
-    </div>`,
+    </div>`;
+      },
     )
     .join("");
 
-  // Event delegation for cards
   grid.addEventListener("click", (e) => {
     const favBtn = e.target.closest(".card__favorite-btn");
     if (favBtn) {
@@ -153,7 +157,8 @@ function renderTrendingCards(grid, recipes) {
 
     const card = e.target.closest(".card--recipe");
     if (card) {
-      window.location.href = `/recipe/?id=${card.dataset.id}`;
+      const id = Number(card.dataset.id);
+      if (id > 0) window.location.href = `/recipe/?id=${id}`;
     }
   });
 }
